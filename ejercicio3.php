@@ -1,5 +1,6 @@
 <?php
     $texto="Hola mundo!";
+    $nombre="Anabel";
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +30,6 @@
 </head>
 <body>
     <h1><?=$texto?></h1>
-    <p><?="<i>Esta página ha sido programada por <b>Anabel</b></i>"?></p>
+    <p>Esta página ha sido programada por<b><i><?=$nombre?></b></i></p>
 </body>
 </html>

@@ -1,11 +1,5 @@
 <?php
     $num=5;
-    $ancho=100;
-
-    for ($i=0; $i<$num; $i++) {
-        echo '<b>*</b><br>';
-        $ancho*=2;
-    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,14 +12,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
     <title>Ejercicio 8</title>
     <style>
-        b {
+        div { 
             border: 1px solid black;
-            width: 30px;
-            background-color: rgb(<?=rand(0, 255) . ", " . rand(0, 255) . ", " . rand(0, 255)?>);
+            text-align:center;
+        }
+        span {
+            padding: 1%;
         }
     </style>
 </head>
-<body>  
-
+<body> 
+    <div>
+    <?php for ($fila=1; $fila<=$num; $fila++) { ?>
+        <span style="background-color: rgb(<?=rand(0, 255) . ", " . rand(0, 255) . ", " . rand(0, 255)?>);">
+        <?php for ($j=0; $j<$fila; $j++) { ?>
+            <?="*"?>
+        <?php } ?>
+        </span>
+        <br>
+    <?php } ?>
+        </div>
 </body>
 </html>
