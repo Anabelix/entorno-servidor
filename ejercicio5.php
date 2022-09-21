@@ -1,7 +1,8 @@
 <?php
     $nombre='Anabel';
-    $r=7;
-    $pi=3.14;
+    $r=2;
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +22,11 @@
     <table>
         <tr>
             <td><p>El área de la circunferencia es:</p></td>
-            <td><?="<p>".pow($r, 2)*$pi."</p>"?></td>
+            <td><p><?=pow($r, 2)*M_PI?></p></td>
         </tr>
         <tr>
             <td><p>El perímetro de la circunferencia es:</p></td>
-            <td><?="<p>".$r*2*$pi."</p>"?></td>
+            <td><p><?=$r*2*M_PI?></p></td>
         </tr>
     </table>
  

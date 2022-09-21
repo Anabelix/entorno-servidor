@@ -25,11 +25,17 @@
         p{
             margin-top: -3%;
         }
+        /*En formularios:
+        name=cliente;
+        id=cliente */
     </style>
     <title>Ejercicio 3</title>
 </head>
 <body>
     <h1><?=$texto?></h1>
+    
     <p>Esta página ha sido programada por<b><i><?=$nombre?></b></i></p>
 </body>
 </html>
+
+
