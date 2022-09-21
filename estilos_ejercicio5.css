@@ -1,0 +1,22 @@
+h1, p, table {
+    text-align:center;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+h1 {
+    font-size: 50px;
+    color:  #581845 ;
+}
+table {
+    margin: 0 auto;
+    width: 30%;
+}
+table, tr, td {
+    border-collapse:collapse;
+    border: 1px solid black;
+}
+td:nth-child(odd) {
+    background-color: #fbff8b;
+}
+td:nth-child(even) {
+    background-color: #fdffcd;
+}
