@@ -1,13 +1,12 @@
 <?php
     $numVocales=0;
     $numConsonantes=0;
-    $esPalindromo=false;
+    $esPalindromo="";
     $comparacion="";
 
     if (isset($_GET['palabra'])) {
         $p = $_GET['palabra'];
-        $mostrar = true;
-
+        
         for ($i=0; $i<strlen($p); $i++) {
             if ($p[$i] == "a" || $p[$i] == "e" || $p[$i] == "i" || $p[$i] == "o" || $p[$i] == "u") {
                 $numVocales++;
@@ -15,16 +14,23 @@
                 $numConsonantes++;
             }
         }
-
-        for ($j=1; $j<strlen($p)/2; $j++) {
-            $comparacion.(substr($p, $j));
-        }
-        echo $comparacion;
+        
+    
     } else {
         $p='';
-        $mostrar = false;
     }
 
+    function esPalindromo ($p) {
+        for ($j=strlen($p)/2; $j>0 ;$j--) {
+            $comparacion=$comparacion.$p[$j];
+        }
+        if ($comparacion==substr($p, (strlen($p)/2))) {
+            return 'Sí';
+        } else return 'No';
+    }
+
+    if (esPalindromo($p)=='Sí') $mostrar = 'resumen';
+    else $mostrar ='noResumen';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,25 +39,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio cadenas</title>
-    <style>
-        .resumen {
-            display: none;
-        }
-    </style>
-
+    <link href="estilos_ejcadenas.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form action="ejercicio_cadenas.php" method="get">
-        <p>Introduce una palabra: 
-            <input type="text" name="palabra" value="<?=$p?>">
-            <input type="submit" value="Enviar">
-        </p>
-    </form>
-    <div class="<?=$resumen?>">
+    <div>
+        <form action="ejercicio_cadenas.php" method="get">
+            <p>Introduce una palabra:<br>
+                <input type="text" name="palabra" value="<?=$p?>">
+                <input type="submit" value="Enviar">
+            </p>
+        </form>
+    </div>
+    
+    <div class="<?=$mostrar?>">
         <ul>
             <li>Número de vocales: <?=$numVocales?></li>
             <li>Número de consonantes: <?=$numConsonantes?></li>
-            <li>¿Es palíndromo? </li>
+            <li>¿Es palíndromo? <?=esPalindromo($p)?></li>
         </ul>
     </div>
 </body>
