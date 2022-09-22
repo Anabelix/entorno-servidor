@@ -1,0 +1,13 @@
+GETTYPE: Devuelve el tipo de variable que hemos declarado.
+Ej: 
+	$b="Anabel";
+	echo gettype($b);
+	string
+
+VAR_DUMP: Devuelve el tipo de dato y su contenido de una serie de variables
+Ej:
+	$a=3;
+	$c="manolo";
+var_dump($a, $c);
+
+
