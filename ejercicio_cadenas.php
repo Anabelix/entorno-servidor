@@ -45,21 +45,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <form action="ejercicio_cadenas.php" method="get">
-            <p>Introduce una palabra:<br>
-                <input type="text" name="palabra" value="<?=$p?>">
-                <input type="submit" value="Enviar">
-            </p>
-        </form>
-    </div>
-    
-    <div class="<?=$mostrar?>">
-        <ul>
-            <li>Número de vocales: <?=$numVocales?></li>
-            <li>Número de consonantes: <?=$numConsonantes?></li>
-            <li>¿Es palíndromo? <?=esPalindromo($p)?></li>
-        </ul>
+    <div class="contenedor">
+        <div>
+            <h1>¿Palíndromo?</h1>
+            <form action="ejercicio_cadenas.php" method="get">
+                <p>Introduce una palabra:<br>
+                    <input type="text" name="palabra" value="<?=$p?>"><br>
+                    <input type="submit" value="Comprobar">
+                </p>
+            </form>
+        </div>
+        
+        <div class="<?=$mostrar?>">
+            <ul>
+                <li>Número de vocales: <?=$numVocales?></li>
+                <li>Número de consonantes: <?=$numConsonantes?></li>
+                <li>¿Es palíndromo? <?=esPalindromo($p)?></li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
