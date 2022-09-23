@@ -3,28 +3,48 @@
     $empresa="";
     $representante="";
     $fecha="";
+    $error=false;
     ob_end_clean();
     require('fpdf184/fpdf.php');
+    class PDF extends FPDF
+    {
+    // Page header
+    function Header()
+        {
+        // Arial bold 15
+        $this->SetFont('Arial','B',15);
+        // Title
+        $this->Cell(100,10,'Carta de Recomendacion', 'C');
+        // Line break
+        $this->Ln(20);
+        }
+    }
+    // Instantiate and use the FPDF class
+    $pdf = new PDF();
     
-    // Instantiate and use the FPDF class 
-    $pdf = new FPDF();
+
     
     //Add a new page
     $pdf->AddPage();
     
     // Set the font for the text
     $pdf->SetFont('Arial', 'B', 18);
-    
+    $pdf->Ln();
     // Prints a cell with given text 
     
 
-    if (isset($_GET['caca'])) {
-        $nombre='Anabel';
-        $pdf->Cell(60,20, $nombre . $empresa . $representante . $fecha);
-        $pdf->Output();
+    if (isset($_GET['nb']) ) {
+        $nombre=$_GET['nb'];
+        $empresa=$_GET['emp'];
+        $presentate=$_GET['presentate'];
+        $fecha=$_GET['fecha'];
+        $pdf->Multicell(100,10, "Estimado/a $nombre," ."\n$empresa" . "\n$presentate". $fecha);
+        
+    } else {
+        $error=true;
     }
     
-    
+    if ($nombre!="") {$pdf->Output();}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,11 +57,12 @@
 <body>
     <h1>Genera tu carta de recomendación</h1>
     <form action="ejercicio_pdf.php">
-        <p>Nombre: <input type="text" name="caca" value="<?=$nombre?>"></p>
-        <p>Empresa: <input type="text" value="<?=$empresa?>"></p>
-        <p>Representante: <input type="text" value="<?=$representante?>"></p>
-        <p>Fecha: <input type="date" value="<?=$fecha?>"></p>
+        <p>Nombre: <input type="text" name="nb" value="<?=$nombre?>"></p>
+        <p>Empresa: <input type="text" name="emp" value="<?=$empresa?>"></p>
+        <p>Presentate: <input type="text" name="presentate" value="<?=$presentate?>"></p>
+        <p>Fecha: <input type="date" name="fecha" value="<?=$fecha?>"></p>
         <input type="submit" value="Generar PDF!">
+
     </form>
 </body>
 </html>
