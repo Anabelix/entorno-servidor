@@ -21,20 +21,24 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 1px 1px 5px #e7e7e798;
+    box-shadow: 1px 1px 5px #dbdbdb98;
     background-color: #ffe9c791;
     border-radius: 20px;
 }
+
 div:first-of-type {
     padding: 2%;
 }
+
 h1 {
     color: #391b47;
     text-shadow: 2px 2px 2px #b9b9b9;
 }
+
 form {
     text-align: center;
 }
+
 input[type="submit"] {
     margin-top: 5%;
     padding: 3%;
@@ -45,36 +49,48 @@ input[type="submit"] {
     background-color: #FAB52A;
     transition: background-color ease-in-out 0.3s;
 }
+
 input[type="submit"]:hover {
     background-color: #b48bff;
     transition: background-color ease-in-out 0.3s;
 }
+
 ul {
     width: 100%;
     background-color: #d1b8ff;
     border-radius: 20px;
 }
+
 li{
     width: 100%;
     list-style: none;
     padding: 1.50% 0 1.5% 2%;
 }
+
 li:nth-child(even) {
     background-color: #bea7fd;
 }
+
 li:nth-child(odd) {
     background-color: #d1b8ff;
     border-radius: 20px;
 }
 
-.resumen {
+.noResumen, .resumen {
     animation-name: aparecer;
     animation-duration: 1.5s;
     display: block;
 }
 
-.noResumen > * {
-    display: none;
+.noResumen > ul {
+    background-color: #e0e0e0;
+}
+.noResumen > ul > li:nth-child(even) {
+    background-color: #e7e7e7;
+}
+.noResumen > ul > li:nth-child(odd) {
+    background-color: #e0e0e0;
+    border-radius: 20px;
 }
 
 @keyframes aparecer {

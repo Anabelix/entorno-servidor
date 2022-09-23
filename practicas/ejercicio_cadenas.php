@@ -14,7 +14,6 @@
                 $numConsonantes++;
             }
         }
-        
     
     } else {
         $p='';
@@ -22,7 +21,7 @@
 
     function esPalindromo ($p) {
         for ($j=strlen($p)/2; $j>0 ;$j--) {
-            $comparacion=$comparacion.$p[$j];
+            $comparacion.=$p[$j];
         }
         if ($comparacion==substr($p, (strlen($p)/2))) {
             return 'Sí';
