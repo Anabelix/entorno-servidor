@@ -12,7 +12,9 @@
     function Header()
         {
         // Arial bold 15
-        $this->SetFont('Arial','B',15);
+        $this->AddFont('LiberationSerif', '', 'LiberationSerif-Regular.php');
+        $this->AddFont('LiberationSerif-Bold', '', 'LiberationSerif-Bold.php');
+        $this->SetFont('LiberationSerif-Bold','',15);
         // Title
         $this->Cell(100,10,'Carta de Recomendacion', 'C');
         // Line break
@@ -28,7 +30,7 @@
     $pdf->AddPage();
     
     // Set the font for the text
-    $pdf->SetFont('Arial', 'B', 18);
+    $pdf->SetFont('LiberationSerif', '', 18);
     $pdf->Ln();
     // Prints a cell with given text 
     
