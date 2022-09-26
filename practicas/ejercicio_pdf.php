@@ -6,33 +6,56 @@
     $error=false;
     ob_end_clean();
     require('fpdf184/fpdf.php');
+
+
     class PDF extends FPDF
     {
     // Page header
     function Header()
         {
-        // Arial bold 15
-        $this->AddFont('LiberationSerif', '', 'LiberationSerif-Regular.php');
-        $this->AddFont('LiberationSerif-Bold', '', 'LiberationSerif-Bold.php');
-        $this->SetFont('LiberationSerif-Bold','',15);
-        // Title
-        $this->Cell(100,10,'Carta de Recomendacion', 'C');
-        // Line break
-        $this->Ln(20);
+            $this->AddFont('LiberationSerif', '', 'LiberationSerif-Regular.php');
+            $this->AddFont('LiberationSerif-Bold', '', 'LiberationSerif-Bold.php');
+            $this->SetFont('LiberationSerif-Bold','', 22);
+            $this->Cell(190,10,'Carta de Recomendacion', 0, 0, 'C');
+            $this->Ln(10);
         }
+
+    function Footer()
+        {
+            $this->SetY(-15);
+            $this->SetFont('LiberationSerif','', 9);
+            $this->SetTextColor(128);
+            $this->Cell(0,10,'Pagina '.$this->PageNo(),0,0,'C');
+        }
+
+    function ChapterBody($file)
+        {
+            // Read text file
+            $txt = file_get_contents($file);
+            // Times 12
+            $this->SetFont('LiberationSerif','',12);
+            // Output justified text
+            $this->MultiCell(0,5,$txt);
+            // Line break
+            $this->Ln();
+        }
+
+    function PrintChapter($file) {
+        $this->ChapterBody($file);
     }
+
+    }
+
+    
+
     // Instantiate and use the FPDF class
     $pdf = new PDF();
     
 
-    
-    //Add a new page
-    $pdf->AddPage();
-    
-    // Set the font for the text
+    $pdf->AddPage();    
     $pdf->SetFont('LiberationSerif', '', 18);
     $pdf->Ln();
-    // Prints a cell with given text 
+    $pdf->PrintChapter('archivo.txt');
     
 
     if (isset($_GET['nb']) ) {
