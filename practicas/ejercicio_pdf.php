@@ -1,23 +1,24 @@
 <?php
     $nombre="";
     $empresa="";
-    $representante="";
+    $cargo="";
     $fecha="";
     $error=false;
     ob_end_clean();
     require('fpdf184/fpdf.php');
 
-
-    class PDF extends FPDF
-    {
+    class PDF extends FPDF {
     // Page header
     function Header()
         {
+            global $titulo;
+            $titulo="Carta de Recomendación";
             $this->AddFont('LiberationSerif', '', 'LiberationSerif-Regular.php');
             $this->AddFont('LiberationSerif-Bold', '', 'LiberationSerif-Bold.php');
             $this->SetFont('LiberationSerif-Bold','', 22);
-            $this->Cell(190,10,'Carta de Recomendacion', 0, 0, 'C');
-            $this->Ln(10);
+            $ancho=$this->GetStringWidth($titulo);
+            $this->SetX((210-$ancho)/2);
+            $this->Cell($ancho, 10, utf8_decode($titulo), 'B', 'C');
         }
 
     function Footer()
@@ -30,13 +31,9 @@
 
     function ChapterBody($file)
         {
-            // Read text file
             $txt = file_get_contents($file);
-            // Times 12
             $this->SetFont('LiberationSerif','',12);
-            // Output justified text
             $this->MultiCell(0,5,$txt);
-            // Line break
             $this->Ln();
         }
 
@@ -46,25 +43,23 @@
 
     }
 
-    
-
     // Instantiate and use the FPDF class
     $pdf = new PDF();
-    
 
     $pdf->AddPage();    
-    $pdf->SetFont('LiberationSerif', '', 18);
+    $pdf->SetFont('LiberationSerif', '', 12);
     $pdf->Ln();
-    $pdf->PrintChapter('archivo.txt');
-    
+    $pdf->SetMargins(20, 20, 20, 20);
 
     if (isset($_GET['nb']) ) {
         $nombre=$_GET['nb'];
         $empresa=$_GET['emp'];
-        $presentate=$_GET['presentate'];
+        $cargo=$_GET['cg'];
         $fecha=$_GET['fecha'];
-        $pdf->Multicell(100,10, "Estimado/a $nombre," ."\n$empresa" . "\n$presentate". $fecha);
-        
+        $pdf->Multicell(180,5, "$fecha", 0 ,'R');
+        $pdf->Multicell(100,5, "$nombre" ."\n$empresa" ."\n$cargo");
+        $pdf->Multicell(100,15, "Estimado/a $nombre,");
+        $pdf->PrintChapter('archivo.txt');
     } else {
         $error=true;
     }
@@ -84,7 +79,7 @@
     <form action="ejercicio_pdf.php">
         <p>Nombre: <input type="text" name="nb" value="<?=$nombre?>"></p>
         <p>Empresa: <input type="text" name="emp" value="<?=$empresa?>"></p>
-        <p>Presentate: <input type="text" name="presentate" value="<?=$presentate?>"></p>
+        <p>Cargo: <input type="text" name="cg" value="<?=$cargo?>"></p>
         <p>Fecha: <input type="date" name="fecha" value="<?=$fecha?>"></p>
         <input type="submit" value="Generar PDF!">
 
