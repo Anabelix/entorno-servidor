@@ -101,26 +101,32 @@
     <meta charset="UTF-8s">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilos_pdf.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Source+Sans+Pro:wght@400;700&family=Yeseva+One&display=swap" rel="stylesheet"> 
     <title>Carta de recomendación</title>
 </head>
 <body>
-    <h1>Genera tu carta de recomendación</h1>
-    <form action="prueba.php">
-        <h3>Datos del empleado</h3>
-        <p>Nombre del empleado: <input type="text" name="usuario_nb" value="<?=$usuario_nb?>"></p>
-        <p>Email del empleado: <input type="text" name="usuario_email" value="<?=$usuario_email?>"></p>
-        <p>Teléfono del empleado: <input type="text" name="usuario_tfno" value="<?=$usuario_tfno?>"></p>
+    <div class="contenedor">
+        <h1>GENERA TU CARTA<br>DE RECOMENDACIÓN</h1>
+        <form action="prueba.php">
+            <h3>Datos del empleado</h3>
+            <p>Nombre:<input type="text" name="usuario_nb" value="<?=$usuario_nb?>"></p>
+            <p>Email:<input type="text" name="usuario_email" value="<?=$usuario_email?>"></p>
+            <p>Teléfono:<input type="text" name="usuario_tfno" value="<?=$usuario_tfno?>"></p>
 
-        <h3>Datos sobre el empleador</h3>
-        <p>Nombre del empleador: <input type="text" name="nb_rrhh" value="<?=$nb_rrhh?>"></p>
-        <p>Empresa: <input type="text" name="empresa" value="<?=$empresa?>"></p>
-        <p>Cargo: <input type="text" name="cargo" value="<?=$cargo?>"></p>
-        <p>Fecha: <input type="date" name="fecha" value="<?=$fecha?>"></p>
-        <input type="submit" value="Generar PDF!">
-    </form>
+            <h3>Datos del empleador</h3>
+            <p>Nombre:<input type="text" name="nb_rrhh" value="<?=$nb_rrhh?>"></p>
+            <p>Empresa:<input type="text" name="empresa" value="<?=$empresa?>"></p>
+            <p>Cargo:<input type="text" name="cargo" value="<?=$cargo?>"></p>
+            <p>Fecha:<input type="date" name="fecha" value="<?=$fecha?>"></p>
+            <input type="submit" value="Generar PDF!">
+        </form>
 
-    <?php if ($error) { ?>
-        <h2>Rellena los campos</h2>
-    <?php } ?>
+        <?php if ($error) { ?>
+            <h2>Rellena los campos</h2>
+        <?php } ?>
+    </div>
 </body>
 </html>
