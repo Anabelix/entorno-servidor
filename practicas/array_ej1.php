@@ -16,41 +16,38 @@
         7 => ["21:00", $ing, $diw, $des, $des, $dec],
     ];
 
+    $colores= [
+        $dec => 'style="background-color:rgb(211, 248, 213);"',
+        $des => 'style="background-color:rgb(165, 180, 194);"',
+        $diw => 'style="background-color:rgb(214, 197, 255);"',
+        $daw => 'style="background-color:rgb(255, 197, 197);"',
+        $emp => 'style="background-color:rgb(255, 218, 197);"',
+        $ing => 'style="background-color:rgb(255, 249, 197);"',
+    ];
+
     function pintarHorario(){
         global $horario;
-        $num=1;
+        global $dec, $des, $emp, $ing, $diw, $daw;
+        $cont=1;
         $aux=0;
         for ($i = 0; $i < count($horario); $i++) {
             echo "<tr>";
                 for($j = 0; $j <count($horario[$i]); $j++){
-                    echo "<td ";
-                    if ($horario[$i][$j] == $horario[$i][0] || ($horario[$i][$j] == $horario[0][$j])) {
-                        echo 'class="hhdd"';
-                    }
                     $aux=$i;
                     while ($horario[$aux][$j]==$horario[$aux+1][$j]) {
-                        $num++;
-                        $i++;
-
-                        if ($horario[$aux][$j]!=$horario[$aux+1][$j]) {
-                            echo '>'.$horario[$i][$j]."</td>";
+                        $cont++;
+                        $aux++;
+                    }
+                    $cont=1;
+                    if ($i>0) {
+                        if($horario[$i][$j]!=$horario[$i-1][$j]) {
+                            echo '<td'.$colores[$horario[$i][$j]].'rowspan="'.$cont.'">'.$horario[$i][$j]."</td>";
                         }
+                    } else {
+                        echo '<td>'.$horario[$i][$j].'</td>';
                     }
                     
-
                     
-                    // $aux=$i;
-                    // while ($horario[$aux][$j]==$horario[$aux+1][$j]) {
-                    //     $num++;
-                    //     $aux++;
-                    // }
-                    // if ($horario[$i-1][$j]!=$horario[$i][$j]) {
-                    //     echo ' rowspan="'.$num.'">'.$horario[$i][$j]."</td>";
-                    // } 
-                    // else if ($horario[$i-1][$j] == null) {
-                    //     echo '>'.$horario[$i][$j]."</td>";
-                    // }
-                    // $num=1;
                 }
                 
             echo "</tr>";
@@ -65,6 +62,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilo_array_ej1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
     <title>Horario</title>
 </head>
 <body>
