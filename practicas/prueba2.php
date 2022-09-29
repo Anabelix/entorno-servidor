@@ -19,7 +19,7 @@
     function pintarHorario(){
         global $horario;
         $num=1;
-        $aux=0;
+        $aux=1;
         for ($i = 0; $i < count($horario); $i++) {
             echo "<tr>";
                 for($j = 0; $j <count($horario[$i]); $j++){
@@ -27,30 +27,13 @@
                     if ($horario[$i][$j] == $horario[$i][0] || ($horario[$i][$j] == $horario[0][$j])) {
                         echo 'class="hhdd"';
                     }
-                    $aux=$i;
-                    while ($horario[$aux][$j]==$horario[$aux+1][$j]) {
+
+                    while ($horario[$aux][$j] == $horario[$aux+1][$j]) {
                         $num++;
-                        $i++;
-
-                        if ($horario[$aux][$j]!=$horario[$aux+1][$j]) {
-                            echo '>'.$horario[$i][$j]."</td>";
-                        }
+                        echo 'style=background-color:red';
                     }
-                    
 
-                    
-                    // $aux=$i;
-                    // while ($horario[$aux][$j]==$horario[$aux+1][$j]) {
-                    //     $num++;
-                    //     $aux++;
-                    // }
-                    // if ($horario[$i-1][$j]!=$horario[$i][$j]) {
-                    //     echo ' rowspan="'.$num.'">'.$horario[$i][$j]."</td>";
-                    // } 
-                    // else if ($horario[$i-1][$j] == null) {
-                    //     echo '>'.$horario[$i][$j]."</td>";
-                    // }
-                    // $num=1;
+                    echo '>'.$horario[$i][$j]."</td>";
                 }
                 
             echo "</tr>";
