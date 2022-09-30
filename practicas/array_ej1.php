@@ -33,20 +33,17 @@
         for ($i = 0; $i < count($horario); $i++) {
             echo "<tr>";
                 for($j = 0; $j <count($horario[$i]); $j++){
+                    echo '<td';
                     $aux=$i;
                     while ($horario[$aux][$j]==$horario[$aux+1][$j]) {
                         $cont++;
                         $aux++;
                     }
                     $cont=1;
-                    if ($i>0) {
-                        if($horario[$i][$j]!=$horario[$i-1][$j]) {
-                            echo '<td'.$colores[$horario[$i][$j]].'rowspan="'.$cont.'">'.$horario[$i][$j]."</td>";
-                        }
-                    } else {
-                        echo '<td>'.$horario[$i][$j].'</td>';
-                    }
                     
+                    if($horario[$i][$j]!=$horario[$i-1][$j]) {
+                        echo  $colores[$horario[$i][$j]].'rowspan="'.$cont.'">'.$horario[$i][$j]."</td>";
+                    }
                     
                 }
                 

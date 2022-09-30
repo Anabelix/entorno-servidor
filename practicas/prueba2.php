@@ -24,16 +24,18 @@
             echo "<tr>";
                 for($j = 0; $j <count($horario[$i]); $j++){
                     echo "<td ";
-                    if ($horario[$i][$j] == $horario[$i][0] || ($horario[$i][$j] == $horario[0][$j])) {
+                    if ($i==0 || $j==0) {
                         echo 'class="hhdd"';
                     }
 
+                    $aux=$i;
                     while ($horario[$aux][$j] == $horario[$aux+1][$j]) {
                         $num++;
-                        echo 'style=background-color:red';
+                        $aux++;
                     }
-
-                    echo '>'.$horario[$i][$j]."</td>";
+                    if ($horario[$i][$j]!=$horario[$i-1][$j] || $horario[$i][$j]==null)
+                    echo 'rowspan="'.$num.'">'.$horario[$i][$j]."</td>";
+                    $num=1;
                 }
                 
             echo "</tr>";
