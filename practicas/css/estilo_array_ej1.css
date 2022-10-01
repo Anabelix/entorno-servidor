@@ -17,9 +17,9 @@ table {
 td:first-child {
     width:5%;
 }
-td:last-child {
+/* td:last-child {
     display: none;
-}
+} */
 .hhdd {
     background-color: rgb(211, 238, 248);
 }

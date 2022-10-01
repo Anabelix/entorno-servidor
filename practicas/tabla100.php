@@ -4,6 +4,7 @@
     $esPrimo=true;
     
     function esPrimo ($n) {
+        global $esPrimo;
     	if ($n == 0 || $n==1) {
     		$esPrimo == true;
     	} else {
@@ -31,6 +32,10 @@
             .esprimo {
             	background-color: #87c7ff;
             }
+
+            .noprimo {
+                background-color: #ff36ff;
+            }
         </style>
     </head>
     <body>
@@ -38,7 +43,7 @@
             <?php for($i=0;$i<$num;$i++) { ?>
                 <tr>
                     <?php for($j=0;$j<$num;$j++) { ?>
-                        <td <?=(esPrimo ($aux)) ?'class="esprimo"';''?> ><?=$aux?></td>
+                        <td <?=(esPrimo($aux))?'class="noprimo"':'class="esprimo"'?>><?=$aux?></td>
                         <?php $aux++;?>
                     <?php } ?>
                 </tr>

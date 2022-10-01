@@ -20,7 +20,7 @@
         global $horario;
         $num=1;
         $aux=1;
-        for ($i = 0; $i < count($horario); $i++) {
+        for ($i = 0; $i <count($horario); $i++) {
             echo "<tr>";
                 for($j = 0; $j <count($horario[$i]); $j++){
                     echo "<td ";
@@ -49,7 +49,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="estilo_array_ej1.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo_array_ej1.css">
     <title>Horario</title>
 </head>
 <body>
