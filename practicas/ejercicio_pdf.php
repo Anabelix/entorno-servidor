@@ -110,7 +110,7 @@
 <body>
     <div class="contenedor">
         <h1>GENERA TU CARTA<br>DE RECOMENDACIÓN</h1>
-        <form action="prueba.php">
+        <form action="ejercicio_pdf.php">
             <h3>Datos del empleado</h3>
             <p>Nombre:<input type="text" name="usuario_nb" value="<?=$usuario_nb?>"></p>
             <p>Email:<input type="text" name="usuario_email" value="<?=$usuario_email?>"></p>

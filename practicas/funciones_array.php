@@ -35,42 +35,29 @@
         ];
     $totalComida=[];
     
-    // function calcularCalorias ($calorias, $comida) {
-    //     global $comida;
-
-
-    //     for ($i=0; $i<count($comida); $i++) {
-    //         for ($j=1; $j<count($comida[$i]); $j++) {
-    //             echo "<span>".$comida[$i][$j]."</span> ";
-    //         }
-    //         echo "<br>";
-    //     }
-    //     return $calorias;
-    // }
-    
-    function totalCalorias ($total, $cal) {
-        $total+=$cal;
-        return $total;
-    }
-
-    // for ($i=1; $i<count($comida); $i++) {
-    //     echo "<p>".array_reduce($comida[$i][$j], "calcularCalorias")."</p>";
-    // }
-    
-    
-    for ($i=0; $i<count($comida); $i++) {
-        $j=1;
-        $contador+=$comida[$i][$j]*$comida[$i][$j+1];
-    }
-    echo "<span>".$contador."</span> ";
-    // echo "<p>".array_reduce($comida, "calcularCalorias")."</p>";
-        
-    // echo "<br>";
-    
-    // var_dump(array_reduce($totalComida, "totalCalorias"));
 
     //Apartado C:
-    
+   
+    function impar($var)
+    {
+        // Retorna siempre que el número entero sea impar
+        return $var & 1;
+    }
+
+    function par($var)
+    {
+        // Retorna siempre que el número entero sea par
+        return !($var & 0);
+    }
+
+    $array1 = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+    $array2 = [6, 7, 8, 9, 10, 11, 12];
+
+    echo "Impar :\n";
+    print_r(array_filter($array1, "impar"));
+    echo "Par:\n";
+    print_r(array_filter($array2, "par"));
+
 ?>
 
 <!DOCTYPE html>
@@ -83,5 +70,9 @@
 </head>
 <body>
     <?=imprimirArray($resultado)?>
+    <hr>
+
+    <?php ?>
+    <hr>
 </body>
 </html>
