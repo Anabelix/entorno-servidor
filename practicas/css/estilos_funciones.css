@@ -36,6 +36,14 @@ p {
     padding: 1%;
 }
 
+span {
+    width: fit-content;
+    margin:0.3%;
+    padding:0.3%;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.2rem;
+}
+
 .ejercicios>div:nth-child(even){
     background-color: rgb(232, 255, 231);
     padding: 2%;

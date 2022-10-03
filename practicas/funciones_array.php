@@ -1,63 +1,22 @@
 <?php
-    /*--------------------------EJERCICIO 1-------------------------------*/
-    //APARTADO A:
-    $personas = [ 
-        ["Jorge", 1], 
-        ["Bea", 0], 
-        ["Paco", 1], 
-        ["Amparo", 0], 
-    ];
-    function saludo ($personas) {
-            $tratamiento=0;
-            $tratamiento=$personas[1]?"Señor":"Señora";
-            return $tratamiento." ".$personas[0];
-        }
-    
-    $resultado=array_map("saludo", $personas);
-    
+    require('./funciones_ej1.php');
+    require('./funciones_ej2.php');
+
     function imprimirArray ($array) {
+        echo '<span>';
         for ($i=0; $i<count($array); $i++) {
-            echo $array[$i]." - ";
+            echo " - ".$array[$i]. " ";
         }
+        echo '- </span>';
     }
-    
-    //APARTADO B:
-    $comida = [ 
-        0 => ["Banana", 3, 56], 
-        1 => ["Chuleta", 1, 256], 
-        2 => ["Pan", 1, 90] 
-    ];
-    
-    function calcularCalorias ($acumulador, $comida) {
-        $acumulador+=($comida[1]*$comida[2]);
-        return $acumulador;
-    }
-    
-    $totalCalorias = array_reduce($comida, "calcularCalorias");
-    
-    //APARTADO C:
-    function listadoHombres ($personas) {
-            return ($personas[1]==1);
-    }
-    function listadoMujeres ($personas) {
-            return ($personas[1]==0);
-    }
-    $listaHombres = array_filter($personas, "listadoHombres");
-    $listaMujeres = array_filter($personas, "listadoMujeres");
     
     function imprimirListado ($array, $inicial, $genero) {
-        echo "Listado ".$genero. ": <br>";
+        echo "<b>Lista filtrada ".$genero. ": </b><span>- ";
         for ($i=$inicial; $i<=count($array)+$inicial; $i+=2) {
             echo $array[$i][0]." - ";
         }
+        echo "</span>";
     }
-
-    /*--------------------------EJERCICIO 1-------------------------------*/
-    $primerArray = [1, 5, 7, 22, 67, 150, 0, 53, 44];
-    $segundoArray = [5, 3, 7 , 0, 33, 44, 150, 1, 67, 22, 12];
-
-    $interseccion = array_intersect($primerArray, $segundoArray);
-    
 ?>
 
 <!DOCTYPE html>
@@ -75,19 +34,22 @@
 <body>
     <div class="contenedor">
         <div class="ejercicios">
-            <h1>FUNCIONES EN PHP</h1>
+            <h1>FUNCIONES DE ARRAYS EN PHP</h1>
             <div>
                 <h2>Ejercicio 1: ARRAY_MAP, ARRAY_REDUCE y ARRAY_FILTER</h2>
-                <p><b>Listado con los tratamientos de cortesía: </b><br><?=imprimirArray($resultado)?></p>
-                <p><b>Total de calorías consumidas: </b><br><?=$totalCalorias?>.</p>
+                <p><b>Listado con los tratamientos de cortesía a partir de array_map: </b><?=imprimirArray($resultado)?></p>
+                <p><b>Total de calorías consumidas calculado con array_reduce: </b><span><?=$totalCalorias?></span></p>
                 <p><?=imprimirListado($listaHombres, 0, "Hombres")?></p>
                 <p><?=imprimirListado($listaMujeres, 1, "Mujeres")?></p>
             </div>
             <div>
                 <h2>Ejercicio 2: ARRAY_INTERSECT, ARRAY_SEARCH y ARRAY_REPLACE</h2>
-                <p><b>Primer array: </b><?=imprimirArray($primerArray)?><br>
-                <b>Segundo array: </b><?=imprimirArray($segundoArray)?></p>
-                <p><b>Resultado de la intersección:</b><br><?=imprimirArray($interseccion)?></p>
+                <p><b>Primer array: </b><?=imprimirArray($primerArray)?></p>
+                <p><b>Segundo array: </b><?=imprimirArray($segundoArray)?></p>
+                <p><b>Resultado de la intersección: </b><span><?=print_r($interseccion)?></span></p>
+                <p><b>Array que reemplazará datos: </b><span><?=print_r($tercerArray)?></span></p>
+                <p><b>Resultado del reemplazo: </b><?=imprimirArray($reemplazo)?></p>
+                <p><b>El valor 29 está en la posición: </b><span><?=($busqueda)?></span></p>
             </div>
             <div>
                 <h2>Ejercicio 3</h2>
