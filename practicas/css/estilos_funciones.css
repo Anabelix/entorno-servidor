@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    margin-bottom: 2%;
+    text-align: center;
+}
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.contenedor {
+    width: 60%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 10px 0px rgba(46, 46, 46, 0.15);
+    border-radius: 25px;
+}
+
+h1 { font-family: 'Indie Flower', cursive; 
+    padding-top:2%; 
+    margin-top: 2%; 
+}
+
+h2 {
+    border-bottom: 1px dashed black;
+    font-size: 1.2rem;
+}
+
+p {
+    margin-bottom: 2%;
+    padding: 1%;
+}
+
+.ejercicios>div:nth-child(even){
+    background-color: rgb(232, 255, 231);
+    padding: 2%;
+}
+.ejercicios>div:nth-child(even) > h2{
+    color:rgb(7, 31, 0);
+}
+.ejercicios>div:nth-child(even) > p {
+    background-color: rgb(211, 255, 197);
+}
+
+
+.ejercicios>div:nth-child(odd){
+    background-color: rgb(255, 251, 231);
+    padding: 2%;
+}
+.ejercicios>div:nth-child(odd) > h2 {
+    color: rgb(59, 53, 0);
+}
+.ejercicios>div:nth-child(odd) > p {
+    background-color: rgb(255, 249, 197);
+}
