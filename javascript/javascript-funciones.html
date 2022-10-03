@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript funciones</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //FUNCIONES
+        //-----------DEFINIR FUNCION
+        function queTal() {
+            console.log('Que tal?');
+        }
+
+        //-----------EJECUTAR FUNCION
+        queTal();
+
+        //Con variables
+        const mensaje = 'Me aburro';
+        function anotherEjemplo() {
+            console.log(mensaje);
+        }
+        anotherEjemplo();
+
+        //Con parametros
+        function sumar (a, b) {
+            console.log(a+b);
+        }
+        sumar(5,7);
+        sumar(2,5);
+        sumar(20,10);
+        sumar(70,11);
+
+        function conParametros (texto = 'CACA') {
+            console.log('Palabra random jeje '+texto);
+        }
+        conParametros();
+        conParametros('chetos');
+
+        //Con retorno
+        function hola (name='World') {
+            console.log(`Hola ${name}`);
+        }
+        hola();
+        hola('Juan');
+
+        //FUNCIONES ANONIMAS
+        var sayAlgo = function(name = 'morirnos') {
+            return `Vamos a ${name}`;
+        }
+        
+        console.log(sayAlgo());
+        console.log(sayAlgo('mimir'));
+        
+        //FUNCIONES ARROW
+        var sayHello = (name) => `Hello ${name}`;
+        var sayBye = (name) => {return `Chao darling ${name}`};
+
+        console.log(sayHello('Anabel'));
+        console.log(sayBye('Anabel'));
+    </script>
+</body>
+</html>

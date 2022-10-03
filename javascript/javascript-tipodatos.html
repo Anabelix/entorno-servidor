@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript: tipo de datos</title>
+</head>
+<body>
+    <script type="text/javascript">
+/*      console.log(2+1);
+        console.log(3*1);
+        console.log(5-7);
+        console.log(6/3);
+        console.log(10<20);
+        console.log(40>12);
+        console.log(20>=20);
+        console.log(10<=20);
+        console.log(20==20); //Comparacion
+        console.log(20===20); //Compara el tipo de dato y el valor del dato
+        console.log(20==='20'); //Compara el tipo de dato y el valor del dato
+        console.log('20'==='20'); //Compara el tipo de dato y el valor del dato
+        console.log('20'==='30'); //Compara el tipo de dato y el valor del dato
+        console.log(30!==20); */
+
+        //Operaciones
+        let num = 20;
+        console.log(typeof num);
+
+        const notNumber = 2 + 'asdf';
+        console.log(typeof notNumber);
+
+        //isNaN es una funcion que nos dira si una variable es un numero a partir de la conversion de esa variable a un numero.
+        console.log(isNaN(notNumber));
+        console.log(isNaN('30')); //Como si puede convertir el string a entero es false.
+        console.log(isNaN('ventana'));
+        console.log(isNaN(20));
+
+        //toString()
+        let number = 1000;
+        console.log(number);
+        console.log(number.toString());
+
+        //toFixed() establece decimales o redondea si ya los tiene
+        console.log(number.toFixed(3));
+        number = 1000.52642;
+        console.log(number.toFixed(3));
+
+        //Ejercicios
+        const total = 102;
+        const personas = 6;
+        const totalPersonas = total/personas;
+        console.log(totalPersonas);
+
+        const movil = 300;
+        const cascos = 30;
+        const funda = 10;
+        const descuento = 0.90;
+        const totalPagar = (movil + cascos + funda) * descuento;
+        console.log(totalPagar);
+    </script>
+</body>
+</html>

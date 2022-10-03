@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <style>
+        div {
+            width: 15vh;
+            height: 15vh;
+            border: 1px solid black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eventos</h1>
+    <button id="cambiarColor">Cambiar color yasss</button>
+    <div id="circulito"></div>
+
+    <script type="text/javascript">
+        document.addEventListener("keydown", function(evento){
+            console.log(evento);
+        });
+
+        var boton = document.getElementById('cambiarColor');
+        function random(maximo) {
+            return Math.round(Math.random()*maximo);
+        };
+
+        boton.addEventListener('click', function(cambio){
+            var codigo = [
+            random(255),
+            random(255),
+            random(255)
+            ];
+
+            
+            var circulo = document.getElementById('circulito');
+            circulo.style.backgroundColor= "rgb("+codigo[0]+","+ codigo[1]+","+codigo[2]+")";
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript variables</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const whatever = 'whatever'
+        console.log(whatever)
+
+        function sayHello() {
+            const helloworld = 'hello world!'
+            console.log(helloworld)
+        }
+
+        console.log(whatever) //variable global que se puede acceder a ella siempre
+        //console.log(helloworld) variable local que no se puede acceder a ella fuera de donde ha sido declarada
+
+        //TIPOS DE VARIABLES: VAR, LET Y CONST
+
+        const name = 'Anabel'; //nunca van a cambiar su valor 
+        console.log(name);
+
+        
+        // console.log(text); No se puede acceder a una variable let antes de que haya sido declarada
+        console.log('Llamada a la variable "var" sin declarar e inicializar')
+        console.log(random);
+
+        //TANTO LET COMO VAR PUEDEN CAMBIAR DE VALOR
+        let text = 'Hello World!';
+        var random = 'jeje';
+        console.log('Variables "let" y "var" declaradas e inicializadas')
+        console.log(text);
+        console.log(random);
+
+        // name = 'Pepe' No deja que cambiemos el valor por ser del tipo const
+        text = 'Hola Anabel'
+        random ='Que pasa??'
+        
+        console.log('Nuevos valores para variables "let" y "var"')
+        console.log(text);
+        console.log(random);
+
+    </script>
+</body>
+</html>

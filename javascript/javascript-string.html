@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript: String</title>
+</head>
+<body>
+    <p class="newsletter-text"></p>
+
+    <script type="text/javascript">
+        //CONCATENACION
+        console.log('Hola'+'Maricarmen hehe');
+
+        //con variables dinamicas
+        const name = 'Anabel';
+        console.log('Hola '+name);
+        console.log(`Hola ${name} hehehehe`);
+
+        //typeof
+        console.log(typeof name);
+
+        //.length
+        console.log(name.length);
+
+        //.includes - boleano que dice si contiene ese contenido o no
+        console.log(name.includes('be'));
+        console.log(name.includes('pe'));
+
+        //.slice - corta la cadena
+        console.log(name.slice(2,5));
+
+        //.replace
+        console.log(name.replace('bel', ' Isabel'));
+
+        //.trim - Elimina los espacios en blanco del inicio y del final
+        const texto = '    mmms soy genial pero un poco vaga    ';
+        console.log(texto.trim());
+
+        //.split - Divide el texto en arrays de tipo cadena
+        const geolocation = 'Calle Diamante 32, esc derecha 2C, 28021';
+        console.log(geolocation.split(','));
+
+        //Ejercicios
+        nombre = 'Anabel';
+        game = 'Link awakening';
+        discount = 20;
+        newsletter = `Hola ${nombre},
+        Como regalo de bienvenida al Club de gamers,
+        queremos ofrecerte un descuento del ${discount}%
+        en el proximo lanzamiento de tu interes ${game}.
+        Esperamos lo disfrutes,
+        Un saludo.`;
+
+        document.querySelector('.newsletter-text').innerHTML = newsletter;
+    </script>
+</body>
+</html>
