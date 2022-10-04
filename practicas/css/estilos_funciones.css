@@ -21,7 +21,8 @@ body, html {
     border-radius: 25px;
 }
 
-h1 { font-family: 'Indie Flower', cursive; 
+h1 { 
+    font-family: 'Indie Flower', cursive; 
     padding-top:2%; 
     margin-top: 2%; 
 }
