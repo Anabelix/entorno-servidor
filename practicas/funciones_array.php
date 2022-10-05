@@ -1,6 +1,7 @@
 <?php
     require('./funciones_ej1.php');
     require('./funciones_ej2.php');
+    require('./funciones_ej3.php');
 
     function imprimirArray ($array) {
         echo '<span>';
@@ -53,7 +54,7 @@
             </div>
             <div>
                 <h2>Ejercicio 3</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod architecto tenetur quae vero qui! Accusamus culpa maiores, corporis quo eum est consectetur dignissimos ullam cum praesentium totam consequuntur qui sequi?</p>
+                <p><?=array_walk($usuarios, "imprimirHehe");?></p>
             </div>
         </div>
     </div>

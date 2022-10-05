@@ -15,6 +15,13 @@ function saludo ($personas) {
 
 $resultado=array_map("saludo", $personas);
 
+/*CON ARRAY WALK: No te devuelve un array
+    array_walk($array, function($item, $clave) {
+        echo ($item[1]==0?"Señora":"Señor")." ".$item[0];
+    });
+
+    $clave es optativa hehehehehhehehhehe
+*/
 //APARTADO B:
 $comida = [ 
     0 => ["Banana", 3, 56], 
