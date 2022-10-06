@@ -1,7 +1,7 @@
 <?php
     require('./funciones_ej1.php');
     require('./funciones_ej2.php');
-    require('./funciones_ej3.php');
+    /* require('./funciones_ej3.php'); */
 
     function imprimirArray ($array) {
         echo '<span>';
@@ -54,7 +54,7 @@
             </div>
             <div>
                 <h2>Ejercicio 3</h2>
-                <p><?=array_walk($usuarios, "imprimirHehe");?></p>
+                <p><span><?=array_walk($usuarios, "imprimirHehe")?></span></p>
             </div>
         </div>
     </div>
