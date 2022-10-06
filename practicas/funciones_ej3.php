@@ -20,37 +20,25 @@
     $arrayHasheada = array_map("encriptar", $usuarios);
     array_walk($arrayHasheada, "imprimirHehe");
 
-
     /*Apartado C*/
-    function conContraseña ($usuarios) {
-        return (!($usuarios == ""));
-    }
-
-    $arrayContraseña = array_filter($usuarios, "conContraseña");
-    
-    function sinContraseña ($usuarios) {
-        return ($usuarios == "");
-    }
-
-    $arraySinContraseña = array_filter($usuarios, "sinContraseña");
-
-    echo "<hr>";
-    array_walk($arrayContraseña, "imprimirHehe");
-
-    function imprimirTodo ($item, $key) {
-        if ($item=="") {
-            echo "Nombre: ".$key." - Contraseña: tmp2022";
-        } else {
-            echo "Nombre: ".$key." - Contraseña: ".$item."<br>";
+    function impresionDos ($usuarios) {
+        if ($usuarios=="") {
+            $usuarios="tmp2022";
         }
-        
+        return (password_hash($usuarios, PASSWORD_DEFAULT));
     }
-    array_walk($arraySinContraseña, "imprimirTodo");
 
+    $arrayHasheada = array_map("encriptar", $usuarios);
+    array_walk($arrayHasheada, "imprimirDos");
+
+
+    /*Apartado D*/
     echo "<hr>";
-    echo "caca";
-    $arrayCC = ["mary"=>"tmp2022"];
-    $arrayFinal=array_replace($usuarios, $arrayCC);
-    array_walk($arrayFinal, "imprimirHehe");
+    array_walk($usuarios, function ($item, $key) {
+        if ($item=="") {
+            $item="tmp2022";
+        }
+        echo "Nombre: ".$key." Contraseña: ".$item."<br>";
+    });
 
 ?>
