@@ -1,7 +1,7 @@
 <?php
     require('./funciones_ej1.php');
     require('./funciones_ej2.php');
-    /* require('./funciones_ej3.php'); */
+    require('./funciones_ej3.php');
 
     function imprimirArray ($array) {
         echo '<span>';
@@ -38,23 +38,62 @@
             <h1>FUNCIONES DE ARRAYS EN PHP</h1>
             <div>
                 <h2>Ejercicio 1: ARRAY_MAP, ARRAY_REDUCE y ARRAY_FILTER</h2>
-                <p><b>Listado con los tratamientos de cortesía a partir de array_map: </b><?=imprimirArray($resultado)?></p>
-                <p><b>Total de calorías consumidas calculado con array_reduce: </b><span><?=$totalCalorias?></span></p>
+                <p>
+                    <b>Listado con los tratamientos de cortesía a partir de array_map: </b>
+                    <?=imprimirArray($resultado)?>
+                </p>
+                <p>
+                    <b>Total de calorías consumidas calculado con array_reduce: </b>
+                    <span><?=$totalCalorias?></span>
+                </p>
                 <p><?=imprimirListado($listaHombres, 0, "Hombres")?></p>
                 <p><?=imprimirListado($listaMujeres, 1, "Mujeres")?></p>
             </div>
             <div>
                 <h2>Ejercicio 2: ARRAY_INTERSECT, ARRAY_SEARCH y ARRAY_REPLACE</h2>
-                <p><b>Primer array: </b><?=imprimirArray($primerArray)?></p>
-                <p><b>Segundo array: </b><?=imprimirArray($segundoArray)?></p>
-                <p><b>Resultado de la intersección: </b><span><?=print_r($interseccion)?></span></p>
-                <p><b>Array que reemplazará datos: </b><span><?=print_r($tercerArray)?></span></p>
-                <p><b>Resultado del reemplazo: </b><?=imprimirArray($reemplazo)?></p>
-                <p><b>El valor 29 está en la posición: </b><span><?=($busqueda)?></span></p>
+                <p>
+                    <b>Primer array: </b>
+                    <?=imprimirArray($primerArray)?>
+                </p>
+                <p>
+                    <b>Segundo array: </b>
+                    <?=imprimirArray($segundoArray)?>
+                </p>
+                <p>
+                    <b>Resultado de la intersección: </b>
+                    <span><?=print_r($interseccion)?></span>
+                </p>
+                <p>
+                    <b>Array que reemplazará datos: </b>
+                    <span><?=print_r($tercerArray)?></span>
+            </p>
+                <p>
+                    <b>Resultado del reemplazo: </b>
+                    <?=imprimirArray($reemplazo)?>
+                </p>
+                <p>
+                    <b>El valor 29 está en la posición: </b>
+                    <span><?=($busqueda)?></span>
+                </p>
             </div>
             <div>
-                <h2>Ejercicio 3</h2>
-                <p><span><?=array_walk($usuarios, "imprimirHehe")?></span></p>
+                <h2>Ejercicio 3: ARRAY_WALK, ARRAY_MAP, ARRAY_REPLACE</h2>
+                <p>
+                    <b>Impresión de $usuarios con array_walk:</b><br>
+                    <span><?=array_walk($usuarios, "imprimirHehe")?></span>
+                </p>
+                <p>
+                    <b>Encriptar contraseñas de $usuarios con password_hash, creación de un nuevo array con array_map e impresión:</b><br>
+                    <span><?=array_walk($arrayHasheada, "imprimirHehe")?></span>
+                </p>
+                <p>
+                    <b>Sustitución de las contraseñas nulas del array anterior + encriptación, creación de un nuevo array e impresión:</b><br>
+                    <span><?=array_walk($ahCompleta, "imprimirHehe")?></span>
+                </p>
+                <p>
+                    <b>Sustitución de las contraseñas nulas de $usuarios e impresión:</b><br>
+                    <span><?=array_walk($usuarios, "reemplazoEncriptado")?></span>
+                </p>
             </div>
         </div>
     </div>

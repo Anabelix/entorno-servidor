@@ -12,7 +12,7 @@
                     for ($l=97; $l<123; $l++) {
                         $palabra=chr($i).chr($j).chr($k).chr($l);
                         
-                        if (password_verify($palabra, $hash)) {
+                        if (password_verify($palabra, $hash)==1) {
                             $descubierta = true;
                         }
                     }

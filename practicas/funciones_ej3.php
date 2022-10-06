@@ -2,43 +2,37 @@
     $usuarios = [
         "jorge" => "1234",
         "amparo" => "admin",
-        "mary" => "",
+        "mary" => ""
     ];
-    /*Apartado A*/
+
+
+    /*----------------------------Apartado A--------------------------*/
     function imprimirHehe ($item, $key) {
-        echo "Nombre: ".$key." - Contraseña: ".$item."<br>";
+        echo "<b>Nombre:</b> ".$key." - <b>Contraseña:</b> ".$item."<br>";
     }
 
-    array_walk($usuarios, "imprimirHehe");
-    echo "<hr>";
-    
-    /*Apartado B*/
+    /*----------------------------Apartado B--------------------------*/
     function encriptar ($usuarios) {
         return (password_hash($usuarios, PASSWORD_DEFAULT));
     }
 
     $arrayHasheada = array_map("encriptar", $usuarios);
-    array_walk($arrayHasheada, "imprimirHehe");
 
-    /*Apartado C*/
-    function impresionDos ($usuarios) {
+    /*----------------------------Apartado C--------------------------*/
+    function impresionHash ($usuarios) {
         if ($usuarios=="") {
             $usuarios="tmp2022";
         }
         return (password_hash($usuarios, PASSWORD_DEFAULT));
     }
 
-    $arrayHasheada = array_map("encriptar", $usuarios);
-    array_walk($arrayHasheada, "imprimirDos");
+    $ahCompleta = array_map("impresionHash", $arrayHasheada);
 
-
-    /*Apartado D*/
-    echo "<hr>";
-    array_walk($usuarios, function ($item, $key) {
+    /*----------------------------Apartado D--------------------------*/
+    function reemplazoEncriptado ($item, $key) {
         if ($item=="") {
             $item="tmp2022";
         }
-        echo "Nombre: ".$key." Contraseña: ".$item."<br>";
-    });
-
+        echo "<b>Nombre:</b> ".$key." - <b>Contraseña:</b> ".$item."<br>";
+    }
 ?>
