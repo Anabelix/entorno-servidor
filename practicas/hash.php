@@ -1,7 +1,7 @@
 <?php
 
-    set_time_limit(300);
-    $cosa = "$2y$10$0GNiidCkeO/VBBHPH0DP6e5tgz6l/FIOxs1RcFloJrXuTYmmAsW72";
+    set_time_limit(7200);
+    $hash = "$2y$10$0GNiidCkeO/VBBHPH0DP6e5tgz6l/FIOxs1RcFloJrXuTYmmAsW72";
     
     // echo password_hash($valor, PASSWORD_DEFAULT)."\n";
     $descubierta=false;
@@ -12,7 +12,7 @@
                     for ($l=97; $l<123; $l++) {
                         $palabra=chr($i).chr($j).chr($k).chr($l);
                         
-                        if (password_verify($palabra, PASSWORD_DEFAULT)) {
+                        if (password_verify($palabra, $hash)) {
                             $descubierta = true;
                         }
                     }
