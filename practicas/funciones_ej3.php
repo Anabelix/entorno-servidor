@@ -5,7 +5,6 @@
         "mary" => ""
     ];
 
-
     /*----------------------------Apartado A--------------------------*/
     function imprimirHehe ($item, $key) {
         echo "<b>Nombre:</b> ".$key." - <b>Contraseña:</b> ".$item."<br>";

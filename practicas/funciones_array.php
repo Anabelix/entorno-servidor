@@ -2,6 +2,9 @@
     require('./funciones_ej1.php');
     require('./funciones_ej2.php');
     require('./funciones_ej3.php');
+    require('./funciones_ej4.php');
+    /* require('./funciones_ej5.php'); */
+    require('./funciones_ej6.php');
 
     function imprimirArray ($array) {
         echo '<span>';
@@ -18,6 +21,7 @@
         }
         echo "</span>";
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +40,7 @@
     <div class="contenedor">
         <div class="ejercicios">
             <h1>FUNCIONES DE ARRAYS EN PHP</h1>
+            <!--Ejercicio 1: Jorge-->
             <div>
                 <h2>Ejercicio 1: ARRAY_MAP, ARRAY_REDUCE y ARRAY_FILTER</h2>
                 <p>
@@ -49,6 +54,7 @@
                 <p><?=imprimirListado($listaHombres, 0, "Hombres")?></p>
                 <p><?=imprimirListado($listaMujeres, 1, "Mujeres")?></p>
             </div>
+            <!--Ejercicio 2: Panitas-->
             <div>
                 <h2>Ejercicio 2: ARRAY_INTERSECT, ARRAY_SEARCH y ARRAY_REPLACE</h2>
                 <p>
@@ -66,7 +72,7 @@
                 <p>
                     <b>Array que reemplazará datos: </b>
                     <span><?=print_r($tercerArray)?></span>
-            </p>
+                </p>
                 <p>
                     <b>Resultado del reemplazo: </b>
                     <?=imprimirArray($reemplazo)?>
@@ -76,6 +82,7 @@
                     <span><?=($busqueda)?></span>
                 </p>
             </div>
+            <!--Ejercicio 3: Chen y Marcos-->
             <div>
                 <h2>Ejercicio 3: ARRAY_WALK, ARRAY_MAP, ARRAY_REPLACE</h2>
                 <p>
@@ -93,6 +100,42 @@
                 <p>
                     <b>Sustitución de las contraseñas nulas de $usuarios e impresión:</b><br>
                     <span><?=array_walk($usuarios, "reemplazoEncriptado")?></span>
+                    <span><?=print_r($usuarios)?></span>
+                </p>
+            </div>
+            <!--Ejercicio 4: Arturo-->
+            <div>
+                <h2>Ejercicio 4: ARRAY_MERGE</h2>
+                <p>
+                    <b>Array resultante: </b>
+                    <span><?=print_r($combinacion)?></span>
+                </p>
+            </div>
+            <!--Ejercicio 5: Mario, Jason, Daniel-->
+            <div>
+                <h2>Ejercicio 5:</h2>
+                <p>
+                    <b>CACA: </b>
+                </p>
+            </div>
+            <!--Ejercicio 6: Alex y Daniel-->
+            <div>
+                <h2>Ejercicio 7: ARRAY_SLICE, ARRAY_PUSH, SORT, RAND</h2>
+                <p>
+                    <b>Array resultante: </b>
+                    <span><?=print_r($numerosAleatorios)?></span>
+                </p>
+                <p>
+                    <b>Array ordenado: </b>
+                    <span><?=print_r($numerosAleatorios)?></span>    
+                </p>
+                <p>
+                    <b>Array cortado: </b>
+                    <span><?=print_r($arrayCortado)?></span>    
+                </p>
+                <p>
+                    <b>Array push: </b>
+                    <span><?=print_r($arraySParte)?></span>    
                 </p>
             </div>
         </div>
