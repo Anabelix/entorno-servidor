@@ -123,19 +123,19 @@
                 <h2>Ejercicio 7: ARRAY_SLICE, ARRAY_PUSH, SORT, RAND</h2>
                 <p>
                     <b>Array resultante: </b>
-                    <span><?=print_r($numerosAleatorios)?></span>
+                    <span><?=print_r(generarArray())?></span>
                 </p>
                 <p>
                     <b>Array ordenado: </b>
-                    <span><?=print_r($numerosAleatorios)?></span>    
+                    <span><?=print_r(ordenar())?></span>    
                 </p>
                 <p>
                     <b>Array cortado: </b>
-                    <span><?=print_r($arrayCortado)?></span>    
+                    <span><?=print_r(cortarCosas())?></span>    
                 </p>
                 <p>
                     <b>Array push: </b>
-                    <span><?=print_r($arraySParte)?></span>    
+                    <span><?=print_r(push())?></span>    
                 </p>
             </div>
         </div>

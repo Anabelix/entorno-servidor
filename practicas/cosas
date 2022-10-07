@@ -45,13 +45,14 @@ Funciones: array_sum (opcional => array_push)
     
     ----------------------------------------------------------------------------------------
     7. Nacho.
-    Función: array_rand
+    ¿Qué ocurre si hay más tareas que minions? (un minio aleatorio deberé tener otra más)
+    Planificación semanal
 
-    array_rand(array $array, int $num = 1): mixed
-    array: El array de entrada.
-    num: Especifica cuántas entradas deberían seleccionarse.
+    Si ya le echas valor, crea un arraybidimensional de tareas_diarias[dia][tarea] y haz un organigrama donde asignes tareas a cada persona durante la semana
 
-    Dados dos arrays unidimensionales, uno de tareas[] y otro de personas[], asigna de manera aleatoria una tarea a cada persona. Si ya le echas valor, crea un arraybidimensional de tareas_diarias[dia][tarea] y haz un organigrama donde asignes tareas a cada persona durante la semana
+    Cada día de las semana (de lunes a viernes) se tienen que hacer todas las tareas cada día y se tienen que distribuir entre los minions.
+
+    Haz la distribución y pinta una tabla html.
 
     --------------------------------------------------------------------------------
     8. Doryan - Nataly - Antonio
