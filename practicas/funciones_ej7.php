@@ -17,13 +17,23 @@
         // Opcional
     ];
     
-    $aleatorioMinions=array_rand($minions, 3);
-    $aleatorioTareas=array_rand($tareas, 7);
 
-    for ($i=0; $i < count($minions); $i++) {
-        echo ucfirst($minions[$aleatorioMinions[$i]])." tiene que... ".$tareas[$aleatorioTareas[$i]].".<br>";
+
+    
+    
+    $tareasMinions = [[],[],[],[],[],[]];
+    for ($i=0; $i<count($tareasMinions); $i++) {
+        $tareasMinions[$i][0]=$tareas[array_rand($tareas)];
+        $tareasMinions[$i][1]=$minions[array_rand($minions)];
     }
 
+    for ($i=0; $i<count($tareasMinions); $i++) {
+        echo "Fila ".$i."<br>";
+        for ($j=0; $j<count($tareasMinions[$i]); $j++) {
+            echo $i."-".$j." ".$tareasMinions[$i][$j]." ";
+        }
+        echo "<br>";
+    } 
     /* echo "<hr>";
     for ($i=0; $i<5; $i++) {
             $tareas_diarias=[
