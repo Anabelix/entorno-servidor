@@ -30,7 +30,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/estilos_funciones.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilos_funciones.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Secular+One&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">  
@@ -120,7 +120,7 @@
             </div>
             <!--Ejercicio 6: Alex y Daniel-->
             <div>
-                <h2>Ejercicio 7: ARRAY_SLICE, ARRAY_PUSH, SORT, RAND</h2>
+                <h2>Ejercicio 6: ARRAY_SLICE, ARRAY_PUSH, SORT, RAND</h2>
                 <p>
                     <b>Array resultante: </b>
                     <span><?=print_r(generarArray())?></span>

@@ -1,0 +1,123 @@
+LOs arrays son mapas ordenados en donde una clave (indice) está asociado 
+a un valor.
+Se puede escribir de las siguientes formas:
+<?php
+	$array = array(
+		"clave_uno"=>"valor_uno",
+		"clave_dos"=>"valor_dos",
+		"clave_xxx"=>"valor_xxx",
+	);
+
+//A partir de PHP 5.4
+	$array = [
+          "clave_uno"=>"valor_uno",
+          "clave_dos"=>"valor_dos",
+          "clave_xxx"=>"valor_xxx",
+	];
+?>
+Las claves pueden ser un integer o un string. El valor puede ser de cualquier tipo. Hay que tener en cuenta los siguientes aspectos con respecto las claves: 
+
+Si la clave es una cadena que contiene un número y no lleva delante el signo +, se transformará en integer entero valido 
+Ej: "8" -> 8. "08" -> No se convierte en 8. 
+
+Los decimales floats seran convertidos a integer sin la parte decimal: 
+Ej: 8.7 -> 8. 
+
+Los booleans se transformarán en enteros: 
+Ej: TRUE -> 1. FALSE -> 0. 
+
+Una clave null se almacenará como string vacío -> "" 
+Ej: null -> "" 
+
+Los arrays y objetos no se pueden utilizar como claves. 
+
+Si se utilizan claves con el mismo valor, se sobreescibirán quedando como clave final la última.
+EJEMPLO:
+<?php
+	$array = array(
+			1    => "a",
+			"1"  => "b",
+			1.5  => "c",
+			true => "d",
+	);
+	var_dump($array);
+?>
+
+RESULTADO:
+	array(1) {
+		[1]=> string(1) "d"
+	}
+
+Por otro lado, la clave es opcional. Si no se especifica entonces la clave empezará en 0.
+
+Acceso a los elementos de array con sintaxis de corchete:
+Cuando usamos la expresion array[key] estamos accediendo a su valor.
+<?php
+	$array = [
+	    	"foo" => "bar",
+	    	42    => 24,
+	    	"multi" => [ "dimensional" => ["array" => 
+	    						  "foo"]
+	    		   ]
+	];
+
+	var_dump($array["foo"]);
+	var_dump($array[42]);
+	var_dump($array["multi"]["dimensional"]["array"]);
+?>
+
+RESULTADO:
+String "bar"
+Integer 24
+String "foo"
+
+Modificacion del valor de un array en determinada clave:
+<?php
+$array = [2=>3, 5=>7];
+php > print_r($array);
+Array
+(
+    [2] => 3
+    [5] => 7
+)
+php > $array[]="nuevo";
+php > print_r($array);
+Array
+(
+    [2] => 3
+    [5] => 7
+    [6] => nuevo
+)
+php > $array[2]="sustitucion";
+php > print_r($array);
+Array
+(
+    [2] => sustitucion
+    [5] => 7
+    [6] => nuevo
+)
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
