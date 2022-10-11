@@ -109,4 +109,81 @@
     $mapeadoDos=array_map(fn($nm1, $nm2)=> ($nm1*$nm2), $arr1, $arr2);
     printeoMono($mapeadoDos, "array_map con 2 arrays de distinto tamaño");
     echo "<hr>";
+
+    /* 
+    ARRAY_MERGE: Permite combinar multiples arrays. Devuelve un array.
+    Cuando tienen las mismas claves numericas no se sobreesciben, se añaden al final.
+    El array resultante es reindexado. 
+    array_merge(array $array1, array $... = ?): array
+     */
+    $arrayNum1=[1,2,3];
+    $arrayNum2=[4,5,6];
+    $arrayNum3=[7,8,9];
+    printeoDump($arrayNum1);
+    printeoDump($arrayNum2);
+    printeoDump($arrayNum3);
+
+    $merged=array_merge($arrayNum1, $arrayNum2, $arrayNum3);
+    printeoMono($merged, "array_merged con tres arrays indexados");
+
+    /* Cuando se trata de combinar arrays asociativos, las valores de las claves repetidas son sobreescritas. */
+    $arrayNum1=['a'=>1, 'b'=>2, 'c'=>3];
+    $arrayNum2=[4,5,6];
+    $arrayNum3=['a'=>7, 'b'=>8, 'c'=>9];
+    printeoDump($arrayNum1);
+    printeoDump($arrayNum2);
+    printeoDump($arrayNum3);
+
+    $merged=array_merge($arrayNum1, $arrayNum2, $arrayNum3);
+    printeoMono($merged, "array_merged con 1 array indexado y 2 asociativos");
+    echo '<hr>';
+
+    /* ARRAY_REDUCE: devuelve un unico valor al aplicar a todos los elementos del array indicados una función llamada de retorno.
+    array_reduce(array $array, callable $callback, mixed $initial = null): mixed
+    */
+    $productos=[
+        ['precio'=>2.5, 'cantidad'=>2],
+        ['precio'=>7.25, 'cantidad'=>5],
+        ['precio'=>3.99, 'cantidad'=>8],
+        ['precio'=>0.55, 'cantidad'=>1],
+    ];
+    printeoDump($productos);
+
+    $total = array_reduce($productos, 
+    fn($retornado, $valor) => $retornado+=($valor['precio']*$valor['cantidad'])
+    );
+    printeoMono($total, "array_reduce: calcular el total de una compra");
+    echo '<hr>';
+
+    /* 
+    ARRAY_SEARCH: Busca un valor determinado en un array y devuelve la clave que le corresponde si se ha encontrado y false si no. Es case sentive y además si el ultimo parametro se define como true hará una comparacion estricta de tipos ===.
+    array_search(mixed $needle, array $haystack, bool $strict = false): mixed
+    */
+    $pajar=['rojo', 'azul', 'verde', 'amarillo', 'rosa', 'morado', 'naranja', 'rosa'];
+    printeoDump($pajar);
+
+    $palabraBuscar = 'rosa';
+    $aguja=array_search($palabraBuscar, $pajar);
+
+    $txtEncontrado ='<pre>La palabra '.$palabraBuscar.' se encuentra en el array';
+    $txtNoEncontrado ='<pre>La palabra '.$palabraBuscar.' no se encuentra en el array</pre>';
+    echo 'ARRAY_SEARCH: ';
+    if ($aguja==false) {
+        echo $txtNoEncontrado;
+    } else {
+        echo $txtEncontrado.' en la posicion '.$aguja.'</pre>';
+    }
+    echo '<hr>';
+
+    /*
+    IN_ARRAY: Comprueba si existe un valor en el array. Devuelve un boleano: true si lo encuentra, false si no.
+    in_array(mixed $needle, array $haystack, bool $strict = false): bool
+    */
+    echo 'IN_ARRAY: ';
+    $encontrado=in_array($palabraBuscar, $pajar);
+    if (!$encontrado) {
+        echo $txtNoEncontrado;
+    } else {
+        echo $txtEncontrado.'</pre>';
+    }
 ?>
