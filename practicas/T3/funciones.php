@@ -1,7 +1,6 @@
 <?php
     /* [15 min] Crea una función que sume todos los números entre dos parámetros dados: inicio y fin. PRUEBAS: Escribe una web que llame a la función 10 veces con números aleatorios entre 0 y 20.*/
-
-    function sumar ($inicio, $fin, ) {
+    function sumar ($inicio, $fin) {
         $acc=0;
         if ($inicio<$fin):
             echo "Inicio: ".$inicio." - Fin: ".$fin.".<br>";
@@ -25,8 +24,8 @@
     /*[15 min] Crea una función que concatene todas las cadenas pasadas como parámetro utilizando el primer parámetro como seprador. PRUEBAS: Escribe una web que llame a la función 3 veces con cadenas.*/
     function concatenar ($separador, ...$cadenas) {
         $resultado="";
-        foreach ($cadenas as $palabra) {
-            $resultado.=$palabra.$separador;
+        foreach ($cadenas as $k => $palabra) {
+            $resultado.=(($k==0)?"":$separador).$palabra;
         }
         return $resultado;
     }
@@ -37,36 +36,18 @@
     echo "<hr>";
 
     /*[25 min] Crea una función que genere un array asociativo que contenga información de los parámetros. La función irá descubriendo los tipos*/
-
     function analizarParametros (...$parametros) {
-        $clave="";
         $analisis=[];
         $contador=1;
 
-
-        for ($i=0; $i<count($parametros); $i++) {
-            $clave=gettype($parametros[$i]);
-            
-            if (array_key_exists($clave, $analisis)): $analisis[$clave]+=$contador;
-            else: $analisis[$clave]=$contador;
-            endif;
+        foreach ($parametros as $clave => $valor) {
+            (array_key_exists(gettype($valor), $analisis))? $analisis[gettype($valor)]+=$contador:  $analisis[gettype($valor)]=$contador;
         }
 
         return $analisis;
     }
 
-    print_r(analizarParametros(3, "h", 'hola', [1,2,3], [1], "h", true, 5, false));
-
-
-
-
-
-
-
-
-
-
-
+    print_r(analizarParametros(3, "h", 'hola', [1,2,3], [1], "h", true, 4, 5, false, "caca", true));
 
 
 

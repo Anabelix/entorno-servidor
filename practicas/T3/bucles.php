@@ -1,17 +1,20 @@
 <?php
     //Bucles
-    $cadena="dromedario";
-    for ($i=0; $i < strlen($cadena); $i++) { 
-        echo "<h4>".substr($cadena, $i, 1)."</h4>";
+    function mostrarPalabra ($cadena) {
+        for ($i=0; $i < strlen($cadena); $i++) { 
+            echo "<h4>".substr($cadena, $i, 1)."</h4>";
+        }
+        echo "<hr>";
     }
-    echo "<hr>";
-    
-    $i=0;
-    while (strnatcasecmp("a", substr($cadena, $i, 1)) && $i<strlen($cadena)) {
-        echo "<h4>".substr($cadena, $i, 1)."</h4>";
-        $i++;
+
+    function palabraStop ($cadena) {
+        $i=0;
+        while (strnatcasecmp("a", substr($cadena, $i, 1)) && $i<strlen($cadena)) {
+            echo "<h4>".substr($cadena, $i, 1)."</h4>";
+            $i++;
+        }
+        echo "<hr>";
     }
-    echo "<hr>";
 
     function esPrimo($numero){
         $primo=true;
@@ -30,6 +33,4 @@
             $num = mt_rand(0,100);
         }
     }
-        
-    numRandom();
 ?>

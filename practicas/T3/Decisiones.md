@@ -38,8 +38,8 @@
 
     Imprime:
 
-    [
-    'int' => 1,
-    'string' => 3,
-    'array' => 2
-    ]
+    >[
+    >'int' => 1,
+    >'string' => 3,
+    >'array' => 2
+    >]
