@@ -1,4 +1,6 @@
 <?php
+    require('/mirepo/entorno-servidor/teoria/printeoRechulon.php');
+
     /* [15 min] Crea una función que sume todos los números entre dos parámetros dados: inicio y fin. PRUEBAS: Escribe una web que llame a la función 10 veces con números aleatorios entre 0 y 20.*/
     function sumar ($inicio, $fin) {
         $acc=0;
@@ -48,8 +50,31 @@
     }
 
     print_r(analizarParametros(3, "h", 'hola', [1,2,3], [1], "h", true, 4, 5, false, "caca", true));
+    echo "<hr>";
 
+    function intercambiar (&$var1, &$var2) {
+        $aux=$var1;
+        $var1=$var2;
+        $var2=$aux;
+    }
 
+    $var1=5;
+    $var2="Hola";
+    echo "Var1: ".$var1." - Var2: ".$var2."<br>";
+    intercambiar($var1, $var2);
+    echo "Var1: ".$var1." - Var2: ".$var2."<br>";
+    echo "<hr>";
 
+    function crearVararg ($cantidad=10, $maximo=10, $minimo=0) {
+        $array=[];
+        for ($i=0; $i<$cantidad; $i++) {
+            $array[$i]=mt_rand($minimo, $maximo);
+        }
+        return $array;
+    }
 
+    printeoCool(crearVararg());
+    printeoCool(crearVararg(5));
+    printeoCool(crearVararg(5, 50));
+    printeoCool(crearVararg(5, 50, -50));
 ?>
