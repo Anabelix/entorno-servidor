@@ -1,9 +1,9 @@
-#Bucles y funciones
-##Decisiones
+# Bucles y funciones
+## Decisiones
 
     Crea una página web que genere 3 números aleatorios "mt_rand()", con sentencias condicionales los asigna a tres variables: mayor, mediano y pequeño. Después los mostrará en h1, h2 y h3 respectivamente.
 
-##Bucles
+## Bucles
 
     Crea una página web que recorra una variable de tipo cadena accediendo a cada letra y escriba cada una en un h4. Usa for
 
@@ -20,7 +20,7 @@
     un 	array
 
 
-##Funciones
+## Funciones
 
     [15 min] Crea una función que sume todos los números entre dos parámetros dados: inicio y fin. PRUEBAS: Escribe una web que llame a la función 10 veces con números aleatorios entre 0 y 20.
 
