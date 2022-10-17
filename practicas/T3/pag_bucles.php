@@ -12,6 +12,7 @@
 </head>
 <body>
     <div class="contenido">
+        <p><?=ordenar()?></p>
         <p><?=mostrarPalabra("dromedario")?></p>
         <p><?=palabraStop("dromedario")?></p>
         <p><?=numRandom()?></p>

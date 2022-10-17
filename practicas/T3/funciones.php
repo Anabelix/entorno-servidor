@@ -1,5 +1,5 @@
 <?php
-    require('/mirepo/entorno-servidor/teoria/printeoRechulon.php');
+    require('../../teoria/printeoRechulon.php');
 
     /* [15 min] Crea una función que sume todos los números entre dos parámetros dados: inicio y fin. PRUEBAS: Escribe una web que llame a la función 10 veces con números aleatorios entre 0 y 20.*/
     function sumar ($inicio, $fin) {
@@ -77,4 +77,75 @@
     printeoCool(crearVararg(5));
     printeoCool(crearVararg(5, 50));
     printeoCool(crearVararg(5, 50, -50));
+
+    echo "<hr>";
+    function tipos ($valores) {
+        $cadena="";
+        $num=2;
+        for ($i=0; $i<count($valores); $i++) {
+            if (gettype($valores[$i])=="integer"): 
+                $valores[$i]=pow($valores[$i], $num);
+                $num++;
+            
+            elseif (gettype($valores[$i])=="double"): 
+                $valores[$i]=$valores[$i]*(-1);
+            
+            elseif (gettype($valores[$i])=="string"): 
+                for ($j=0; $j<strlen($valores[$i]); $j++) {
+                    $letra=substr($valores[$i], $j, 1);
+                    if (ctype_upper($letra)): $cadena.=strtolower($letra);
+                    else: $cadena.=strtoupper($letra);
+                    endif;
+                }
+                $valores[$i]=$cadena;
+            endif;
+        }
+
+        return $valores;
+    }
+
+    $arr=[2,5,7,"pEpA", 3.5, true];
+    printeoCool(tipos($arr));
+    echo "<hr>";
+
+    $opciones = [
+        "Madrid" => 28,
+        "Sevilla" => 17,
+        "Cáceres" => 56,
+    ];
+
+    function genera_select (array $opciones, int $seleccionada = -1) {
+        echo '<select name="opciones">';
+        
+        foreach ($opciones as $clave => $valor) {
+            echo '<option value="'.$valor.'"';
+            echo ($seleccionada == $valor)? ' selected>':'>';
+            echo $clave.'</option>';
+        }
+        echo '</select>';
+    }
+
+    genera_select($opciones);
+    genera_select($opciones, 28);
+    echo "<hr>";
+
+    $info = [
+        "nombre" => "Ana Isabel Pedrajas Navarro",
+        "dirección" => "Calle Diamante 32",
+        "teléfono" => "91 123 45 67",
+        "población" => "Madrid",
+        "edad" => 23,
+    ];
+
+    function formatFormUser ($info) {
+        echo '<form id="datos_personales" action="post">';
+        array_walk($info, function($value, $key){
+            $tipo=(is_string($value))?"text":"number";
+            echo '<label for="'.$key.'">'.ucfirst($key).': </label>';
+            echo '<input type="'.$tipo.'" id="'.$tipo.'" name="'.$key.'" value="'.$value.'"></input><br>';
+        });
+        echo '</form>';
+    }
+
+    formatFormUser($info);
 ?>

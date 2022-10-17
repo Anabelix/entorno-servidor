@@ -10,4 +10,10 @@
         var_dump($array);
         echo "</pre>";
     }
+
+    function printeoCool ($array) {
+        echo "<pre>";
+        print_r($array);
+        echo "</pre>";
+    }
 ?>
