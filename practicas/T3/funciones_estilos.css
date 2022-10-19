@@ -1,0 +1,33 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+}
+
+.contenido {
+    width:60%;
+    margin:0 auto;
+}
+
+.ej {
+    border:1px solid black;
+    margin-bottom: 2%;
+    padding: 2%;
+}
+
+h1, h2 {
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px solid black;
+    margin-bottom: 1%;
+}
+
+.resul {
+    border:1px solid red;
+    margin-top: 2%;
+    font-family: 'Indie Flower', cursive; 
+}
