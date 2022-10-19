@@ -12,8 +12,10 @@
     }
 
     function printeoCool ($array) {
-        echo "<pre>";
-        print_r($array);
-        echo "</pre>";
+        echo "Array = [<br>";
+        foreach ($array as $key => $value) {
+            echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[".$key."] => ".$value.",<br>";
+        }
+        echo "] ;<br>";
     }
 ?>
