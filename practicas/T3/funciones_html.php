@@ -33,9 +33,9 @@
             <h2>Ejercicio 7</h2>
             <p>Crea una función que concatene todas las cadenas pasadas como parámetro utilizando el primer parámetro como seprador. PRUEBAS: Escribe una web que llame a la función 3 veces con cadenas.</p>
             <div class="resul">
-                <p><?php echo concatenar(" ", "Hola", "mundo", "!")?></p>
-                <p><?php echo concatenar(".", "Esto", "son", "varias", "cadenas")?></p>
-                <p><?php echo concatenar(";", "manolo", "felipe", "juan", "pepe", "paco", "nacho")?></p>
+                <p><?= concatenar(" ", "Hola", "mundo", "!")?></p>
+                <p><?= concatenar(".", "Esto", "son", "varias", "cadenas")?></p>
+                <p><?= concatenar(";", "manolo", "felipe", "juan", "pepe", "paco", "nacho")?></p>
             </div>
         </div>
 
@@ -94,7 +94,7 @@
             <h2>Ejercicio 13</h2>
             <p>Crea una función para escribir select de HTML, la función recibe un asociativo con el nombre y el value, también recibe el elemento seleccionado. como un entero (que representa su value).</p>
             <div class="resul">
-                <?= genera_select($opciones, 28); ?>
+                <?= genera_select($opciones, 56); ?>
             </div>
         </div>
 

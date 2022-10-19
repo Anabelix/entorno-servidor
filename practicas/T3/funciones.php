@@ -91,6 +91,18 @@
         }
         echo '</select>';
     }
+/*     function genera_select (array $opciones, int $seleccionada = -1) {
+        echo '<select name="opciones">';
+
+        function walkear ($value, $key, $seleccionada) {
+            echo '<option value="'.$value.'"';
+            echo ($seleccionada == $value)? ' selected>':'>';
+            echo $key.'</option>';
+        }
+        array_walk($opciones, "walkear", $seleccionada);
+        echo '</select>';
+    }  */
+
 
     $info = [
         "nombre" => "Ana Isabel Pedrajas Navarro",

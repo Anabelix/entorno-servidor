@@ -6,6 +6,7 @@
 
 body, html {
     width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .contenido {
@@ -24,10 +25,12 @@ h1, h2 {
     width: 100%;
     border-bottom: 2px solid black;
     margin-bottom: 1%;
+    font-family: 'Indie Flower', cursive;
 }
 
 .resul {
-    border:1px solid red;
+    background-color: rgb(234, 244, 253);
+    padding: 2%;
     margin-top: 2%;
     font-family: 'Indie Flower', cursive; 
 }
