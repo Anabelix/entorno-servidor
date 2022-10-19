@@ -24,7 +24,9 @@
         }
         return $resultado;
     }
-
+    concatenar(".", "Esto", "son", "varias", "cadenas");
+    concatenar(";", "manolo", "felipe", "juan", "pepe", "paco", "nacho");
+    
     function analizarParametros (...$parametros) {
         $analisis=[];
         $contador=1;
@@ -83,26 +85,14 @@
 
     function genera_select (array $opciones, int $seleccionada = -1) {
         echo '<select name="opciones">';
-        
-        foreach ($opciones as $clave => $valor) {
-            echo '<option value="'.$valor.'"';
-            echo ($seleccionada == $valor)? ' selected>':'>';
-            echo $clave.'</option>';
-        }
-        echo '</select>';
-    }
-/*     function genera_select (array $opciones, int $seleccionada = -1) {
-        echo '<select name="opciones">';
 
         function walkear ($value, $key, $seleccionada) {
-            echo '<option value="'.$value.'"';
-            echo ($seleccionada == $value)? ' selected>':'>';
-            echo $key.'</option>';
+            $escogida=($seleccionada == $value)?'selected':'';
+            echo "<option value='$value' $escogida>$key</option>";
         }
         array_walk($opciones, "walkear", $seleccionada);
         echo '</select>';
-    }  */
-
+    }
 
     $info = [
         "nombre" => "Ana Isabel Pedrajas Navarro",
@@ -116,8 +106,7 @@
         echo '<form id="datos_personales" action="post">';
         array_walk($info, function($value, $key){
             $tipo=(is_string($value))?"text":"number";
-            echo '<label for="'.$key.'">'.ucfirst($key).': </label>';
-            echo '<input type="'.$tipo.'" id="'.$tipo.'" name="'.$key.'" value="'.$value.'"></input><br>';
+            echo "<label for='$key'>".ucfirst($key).": <input type='$tipo'id='$tipo'name='$key' value='$value'></input></label><br>";
         });
         echo '</form>';
     }

@@ -21,7 +21,7 @@
             <h2>Ejercicio 6</h2>
             <p>Crea una función que sume todos los números entre dos parámetros dados: inicio y fin. PRUEBAS: Escribe una web que llame a la función 10 veces con números aleatorios entre 0 y 20.</p>
             <div class="resul">
-                <?php for ($i=1; $i<=10; $i++) { ?>
+                <?php for ($i=1; $i<=5; $i++) { ?>
                 <p>Llamada <?=$i?>:<br>
                     <?=sumar(mt_rand(0,20), mt_rand(0,20))?>
                 </p>
@@ -34,8 +34,6 @@
             <p>Crea una función que concatene todas las cadenas pasadas como parámetro utilizando el primer parámetro como seprador. PRUEBAS: Escribe una web que llame a la función 3 veces con cadenas.</p>
             <div class="resul">
                 <p><?= concatenar(" ", "Hola", "mundo", "!")?></p>
-                <p><?= concatenar(".", "Esto", "son", "varias", "cadenas")?></p>
-                <p><?= concatenar(";", "manolo", "felipe", "juan", "pepe", "paco", "nacho")?></p>
             </div>
         </div>
 
@@ -64,9 +62,9 @@
             <p>Crea una función que genera un array aleatorio con parámetros variables.</p>
             <div class="resul">
                 <p>
-                    <?= printeoCool(crearVararg());
-                        printeoCool(crearVararg(5));
-                        printeoCool(crearVararg(5, 50));
+                    <?= //printeoCool(crearVararg());
+                        //printeoCool(crearVararg(5));
+                        //printeoCool(crearVararg(5, 50));
                         printeoCool(crearVararg(5, 50, -50)); ?>
                 </p>
             </div>
@@ -94,7 +92,7 @@
             <h2>Ejercicio 13</h2>
             <p>Crea una función para escribir select de HTML, la función recibe un asociativo con el nombre y el value, también recibe el elemento seleccionado. como un entero (que representa su value).</p>
             <div class="resul">
-                <?= genera_select($opciones, 56); ?>
+                <?= genera_select($opciones, 17); ?>
             </div>
         </div>
 

@@ -31,6 +31,23 @@ h1, h2 {
 .resul {
     background-color: rgb(234, 244, 253);
     padding: 2%;
+    
     margin-top: 2%;
-    font-family: 'Indie Flower', cursive; 
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.2rem;
+}
+
+.resul > * {
+    width: 60%;
+    margin: 0 auto;
+}
+
+input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgb(0, 24, 44);
+}
+
+option {
+    width: 40%;
 }
