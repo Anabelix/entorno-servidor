@@ -1,0 +1,28 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #FFF;
+}
+body, html { width: 100%; background-color: rgb(3, 0, 15);}
+
+.contenedor {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.info {
+    background-color: rgb(33, 15, 54);
+    border: 1px solid rgb(212, 202, 255);
+    margin-bottom: 2%;
+    padding:3%;
+}
+/*.info:nth-of-type(odd) { background-color: rgb(231, 244, 255); border-color: rgb(50, 152, 235);}*/
+.info:nth-of-type(odd) { background-color: rgb(0, 34, 61); border-color: rgb(50, 152, 235);}
+h1, h2 {
+    margin-bottom: 2%;
+    text-align: center;
+}
+h1 { margin-top: 1%; }
+h2 { border-bottom: 1px dashed rgb(255, 255, 255); }
