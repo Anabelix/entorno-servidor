@@ -8,19 +8,20 @@
         "hoyos"   => ["primero", 5 => "segundo", "tercero"],
         "asd"
     ];
-    function imprimirArray ($cosas) {
-        $tabular = "_";
-
-        echo "array<br>";
-        foreach ($cosas as $clave => $valor) {
-
-            if (is_array($valor)) {
-                echo $tabular."array<br>";
-                echo $valor."<br>";
-            } else {
-                echo "$tabular$valor<br>";
-            }
-        }
+    
+    function imprimeTabulado ($cosas, $numGuiones=0) {
+        array_walk($cosas, function ($value, $key, $numGuiones=0) {
+            $guiones="";
+            for($i=0; $i<$numGuiones; $i++) { $guiones.="_"; }
+    
+            if (is_array($value)):
+                echo $guiones."array<br>";
+                imprimeTabulado($value, $numGuiones+3);
+            else:
+                echo $guiones.$value."<br>";
+            endif;
+        }, $numGuiones);
     }
-    imprimirArray($cosas);
+    
+    imprimeTabulado($cosas);
 ?>
