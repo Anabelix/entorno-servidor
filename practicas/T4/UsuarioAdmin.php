@@ -1,5 +1,5 @@
 <?php
-class UsuarioAdmin extends Usuarios
+class UsuarioAdmin extends UsuariosCopia
 {
     public function __construct ($nombre, $apellidos, $deporte) {
         parent::__construct($nombre." (Admin)", $apellidos, $deporte);
@@ -9,7 +9,13 @@ class UsuarioAdmin extends Usuarios
         return "Se ha creado un partido";
     }
 
-    public function introResultado () {
+    public function introResultado ($historico) {
+        if ($historico=='victoria' || $historico=='derrota' || $historico=='empate'): 
+            array_push($this->historico, $historico); 
+        else: 
+            echo "Parametro no admitido.";
+        endif;
+
         $subir = true;
         $contSubir=0;
         $bajar = true;

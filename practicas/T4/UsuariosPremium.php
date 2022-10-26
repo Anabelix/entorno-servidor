@@ -1,11 +1,17 @@
 <?php
-    class UsuariosPremium extends Usuarios
+    class UsuariosPremium extends UsuariosCopia
     {
         public function __construct ($nombre, $apellidos, $deporte) {
             parent::__construct($nombre." (Premium)", $apellidos, $deporte);
         }
         
-        public function introResultado () {
+        public function introResultado ($historico) {
+            if ($historico=='victoria' || $historico=='derrota' || $historico=='empate'): 
+                array_push($this->historico, $historico); 
+            else: 
+                echo "Parametro no admitido.";
+            endif;
+
             $subir = true;
             $contSubir=0;
             $bajar = true;
