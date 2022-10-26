@@ -1,0 +1,16 @@
+if ($value=='victoria' || 'derrota'):
+    $cont=($value=='victoria')? $cont++ : $cont--;
+endif;
+
+                    /*if($contSubir==self::$paseMax):
+                        $contSubir=0;
+                        $this->nivelJuego=++$nivel;
+                        echo "Subes de nivel";
+                    elseif($contBajar==self::MAXIMO):
+                        $contBajar=0;
+                        $this->nivelJuego=--$nivel;
+                    else:
+                        $contSubir=0; 
+                        $contBajar=0;
+                    endif;*/
+                

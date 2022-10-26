@@ -16,9 +16,38 @@
     $user1->introResultado('victoria'); //sube +1
     print $user1->imprimirInfo();
 
+
     $user2 = new UsuariosPremium ('alvaro', 'nieves hurtado', 'tenis');
+    $user2->introResultado('empate');
+    $user2->introResultado('derrota');
+    $user2->introResultado('victoria');
+    $user2->introResultado('empate');
+    $user2->introResultado('victoria');
+    $user2->introResultado('victoria');
+    $user2->introResultado('victoria');
+    $user2->introResultado('victoria');
+    $user2->introResultado('victoria');
+    $user2->introResultado('victoria');
+    $user2->introResultado('derrota');
+    $user2->introResultado('derrota');
+    $user2->introResultado('derrota');
+    $user2->introResultado('derrota');
+    $user2->introResultado('derrota');
+    $user2->introResultado('derrota');
     print $user2->imprimirInfo();
-    print $user2->getNivelJuego()."<br>";
+
+    $user3 = new UsuarioAdmin ('miguel', 'garcia sanchez', 'futbol');
+    $user3->introResultado('empate');
+    $user3->introResultado('derrota');
+    $user3->introResultado('victoria');
+    $user3->introResultado('empate');
+    $user3->introResultado('derrota');
+    $user3->introResultado('derrota');
+    $user3->introResultado('derrota');
+    $user3->introResultado('victoria');
+    $user3->introResultado('victoria');
+    $user3->introResultado('victoria');
+    print $user3->imprimirInfo();
 ?>
 <!DOCTYPE html>
 <html lang="en">

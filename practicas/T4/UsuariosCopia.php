@@ -4,41 +4,20 @@
         private $nombre;
         private $apellidos;
         private $deporte;
-
-        private const maximo=6;
-        private static $nivel=0;
-        private $nivelJuego;
         private $historico=[];
-        
+        private $nivelJuego;
+
+        private const MAXIMO=-6;
+        protected $paseMax=6;
+
         public function __construct ($nombre, $apellidos, $deporte) {
             $this->nombre=ucfirst($nombre);
             $this->apellidos=ucfirst($apellidos);
             $this->deporte=ucfirst($deporte);
-            $this->nivelJuego=self::$nivel;
+            $this->nivelJuego=0;
             echo "Usuario ".$this->nombre." creado.<br>";
         }
 
-        public function getNombre() { return $this->nombre; }
-        public function setNombre($nombre) { $this->nombre = ucfirst($nombre); return $this; }
-
-        public function getApellidos() { return $this->apellidos; }
-        public function setApellidos($apellidos){ $this->apellidos = ucfirst($apellidos);return $this; }
-        
-        public function getDeporte() { return $this->deporte; }
-        public function setDeporte($deporte) { $this->deporte = ucfirst($deporte); return $this; }
-
-        public function getNivelJuego() { return $this->nivelJuego; }
-        public function setNivelJuego($nivelJuego=0) { $this->nivelJuego = self::$nivel; return $this; }
-        
-        public function setHistorico($historico) { 
-            if ($historico=='victoria' || $historico=='derrota' || $historico=='empate'): 
-                array_push($this->historico, $historico); 
-            else: 
-                echo "Parametro no admitido.";
-            endif;
-            
-            return $this; 
-        }
         public function getHistorico() { 
             $lista ="";
             foreach ($this->historico as $key => $value) {
@@ -49,33 +28,41 @@
         }
     
         public function introResultado ($historico) {
-            if ($historico=='victoria' || $historico=='derrota' || $historico=='empate'): 
-                array_push($this->historico, $historico); 
+            if ($historico=='victoria' || 'derrota' || 'empate'): 
+                array_push($this->historico, $historico);
+                if ($historico=='victoria'): 
+                    echo "El usuario ".$this->nombre." gana un partido<br>";
+                elseif ($historico=='derrota'): 
+                    echo "El usuario ".$this->nombre." pierde un partido<br>";
+                else: 
+                    echo "El usuario ".$this->nombre." empata un partido<br>";
+                endif;
+            
             else: 
                 echo "Parametro no admitido.";
             endif;
-
-
-            $subir = true;
+            
+            $nivel=0;
             $contSubir=0;
-            $bajar = true;
             $contBajar=0;
-            foreach ($this->historico as $key => $value) {
+            foreach ($this->historico as $value) {
                 if ($value=='victoria'): 
-                    $contSubir++; $subir=true;
-                    if($contSubir==6 && $subir): 
-                        $this->nivelJuego=++self::$nivel;
-                        echo "Usuario ".$this->nombre." sube al nivel: ".$this->nivelJuego."<br>";
-                endif;
+                    $contSubir++;
+                    $contBajar=0;
+                    if($contSubir==$this->paseMax):
+                        $contSubir=0;
+                        $this->nivelJuego=++$nivel;
+                    endif;
                 elseif ($value=='derrota'): 
-                    $contBajar++; $bajar=true;
-                    if($contBajar==6 && $bajar): 
-                        $this->nivelJuego=--self::$nivel;
-                        echo "Usuario ".$this->nombre." baja al nivel: ".$this->nivelJuego."<br>";
+                    $contBajar++;
+                    $contSubir=0;
+                    if($contBajar==self::MAXIMO):
+                        $contBajar=0;
+                        $this->nivelJuego=--$nivel;
                     endif;
                 else:
-                    $contSubir=0; $subir = false; 
-                    $contBajar=0; $bajar = false;
+                    $contSubir=0; 
+                    $contBajar=0;
                 endif;
             }
         }
