@@ -1,7 +1,7 @@
 <?php
-    require('./Coche.php');
-    require('./CocheConRemolque.php');
-    require('./CocheGrua.php');
+    require('../clases/Coche.php');
+    require('../clases/CocheConRemolque.php');
+    require('../clases/CocheGrua.php');
 
     $coches = [];
 

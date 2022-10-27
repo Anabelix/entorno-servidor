@@ -1,6 +1,6 @@
 <?php
-    require('./CuentaBancaria.php');
-/*     
+    require('../clases/CuentaBancaria.php');
+    
     $cb1 = new CuentaBancaria('anabel', 100);
     print $cb1->mostrar();
     echo "<hr>";
@@ -19,7 +19,7 @@
     echo "<hr>";
     print $cb2->mostrar(); 
     
-    Crea una página con tres cuentas:
+    /*Crea una página con tres cuentas:
     Milloneti, saldo 1000000
     Agapito, saldo 30345
     Pobretón, saldo -10000
@@ -30,11 +30,5 @@
     Muestra el saldo de las 3 cuentas. Solo el saldo.
     Pobretón ha hackeado el banco y ha conseguido unir la cuenta del Milloneti a la suya.
     Agapito es buena persona y decide transferir la mitad de su salario a Milloneti para que rehaga su vida.
-    Muestra el detalle (método mostrar) de las 3 cuentas.
-*/
-
-
-
-
-
+    Muestra el detalle (método mostrar) de las 3 cuentas.*/
 ?>

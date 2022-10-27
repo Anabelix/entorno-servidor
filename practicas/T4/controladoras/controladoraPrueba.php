@@ -1,7 +1,7 @@
 <?php   
-    require('./UsuariosCopia.php');
-    require('./UsuariosPremium.php');
-    require('./UsuarioAdmin.php');
+    require('../clases/UsuariosCopia.php');
+    require('../clases/UsuariosPremium.php');
+    require('../clases/UsuarioAdmin.php');
     $user1 = new UsuariosCopia ('anabel', 'pedrajas navarro', 'natación');
 
     $user1->introResultado('empate');
