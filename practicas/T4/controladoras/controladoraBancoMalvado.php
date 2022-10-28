@@ -1,12 +1,18 @@
 <?php
-    require('../clases/IPlataformaPago.php');
+/*   require('../clases/IPlataformaPago.php');
     require('../clases/BancoMalvado.php');
     require('../clases/BancoMaloMalisimo.php');
     require('../clases/BitCoinConan.php');
-    /*$pago = new BancoMalvado();
+    $pago = new BancoMalvado();
     print $pago->estableceConexión()."<br>";
     print $pago->compruebaSeguridad()."<br>";
     print $pago->pagar("0001X", 30);*/
+
+
+    spl_autoload_register(function ($class) {
+        $classPath = "../clases/";
+        require("$classPath${class}.php");
+    });
 
     function realizarTransaccion(IPlataformaPago $p, string $cuenta, int $cantidad)
     {
