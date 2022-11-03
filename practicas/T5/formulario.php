@@ -9,7 +9,7 @@
     print_r($_POST);
     echo "<hr>";
 
-    $_SERVER["HTTP_ACCEPT_LANGUAGE"]="ko-KR,en;q=0.5";
+    $_SERVER["HTTP_ACCEPT_LANGUAGE"]="ko-KR,ko;q=0.5";
     switch (substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0 , 2)) {
         case 'es':
             print("BIENVENIDO!!!");
