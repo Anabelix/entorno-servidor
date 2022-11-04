@@ -19,7 +19,7 @@
     $errores = [];
     if (isset($_POST['enviar'])) {
         if (isset($_POST['cancion']) && $_POST['cancion']!="") {
-            $cancion=$_POST['cancion']; 
+            $cancion=ucfirst($_POST['cancion']); 
         } else {
             $errores['cancion']="No puede estar vacío";
         }
@@ -46,9 +46,17 @@
 
             //Redirect
             header("Location: listado.php");
+
             //Exit
             exit();
         }
+    }
+
+    function cleanData($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 ?>
 
