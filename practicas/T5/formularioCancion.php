@@ -48,21 +48,8 @@
             header("Location: listado.php");
             //Exit
             exit();
-
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -91,9 +78,16 @@
             }
         ?>
 
-
         <label for="hora">H</label>
         <input type="number" name="hora" max="23" min="0" size="1" id="hora" value="<?=$hora?>">
+        <?php
+            if (isset($errores['hora'])) {
+                echo '<div class="error">';
+                echo '<p>'.$errores['hora'].'</p>';
+                echo '</div>';
+            }
+        ?>
+
         <label for="min">MM</label>
         <select name="min" id="min">
             <?php
@@ -106,7 +100,14 @@
                 );
             ?>
         </select>
-        
+        <?php
+            if (isset($errores['min'])) {
+                echo '<div class="error">';
+                echo '<p>'.$errores['min'].'</p>';
+                echo '</div>';
+            }
+        ?>
+
         <input type="submit" value="Enviar" name="enviar">
     </form>
 </body>
