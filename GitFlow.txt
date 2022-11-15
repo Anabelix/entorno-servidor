@@ -1,1 +1,10 @@
-git checkout feature/Numero -> git flow-feature commit -> git checkout develop -> git pull -> git checkout feature/Numero -> git merge develop -> git add . -> git commit -m  -> git flow feature finish -> git push
+git checkout feature/Numero
+git flow-feature commit
+git checkout develop
+git pull
+git checkout feature/Numero
+git merge develop
+git add .
+git commit -m ""
+git flow feature finish
+git push
