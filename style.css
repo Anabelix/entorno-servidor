@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100vh;
+/*     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+/* .ejercicio {
+    width: 50%;
+    height: 50%;
+    border:1px solid black;
+} */
+
+/*TECLADO PIANO*/
+.ejercicio:nth-child(2) { position: relative; }
+.ejercicio:nth-child(2)>* { margin: 0 auto; }
+
+.teclasNegras {
+    width:90%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.negras {
+    background: linear-gradient(rgb(95, 95, 95), rgb(38, 38, 38));
+    border:2px solid black;
+    border-radius: 0 0 7px 7px;
+    box-shadow: 
+        rgb(95, 95, 95) 0 -2px 2px 0 inset, /*Reflejo de abajo*/
+        rgb(28, 28, 28) 0 -13px 2px 0 inset, /*Sombra de abajo*/
+        rgb(28, 28, 28) 5px 0 2px 0 inset, /*Sombra izquierda*/
+        rgb(28, 28, 28) -5px 0 2px 0 inset, /*Sombra derecha*/
+        rgb(58, 58, 58) 2px 2px 5px 0; /*Sombra arrojada*/
+    width: 6%;
+    height: 55%;
+    z-index: 3;
+}
+.negras:hover {
+    background-color: red;
+}
+.teclasBlancas {
+    width:100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.blancas {
+    border:1px solid rgb(128, 128, 128);
+    border-radius: 0 0 10px 10px;
+    height: 100%;
+    width: calc(100%/10);
+    box-shadow: 
+        rgba(0, 0, 0, 0.4) 0 2px 5px, /*Sombra arrojada entre teclas*/
+        rgba(0, 0, 0, 0.3) 0 7px 10px -3px, /*Sombra arrojada debajo de las teclas*/
+        rgba(0, 0, 0, 0.2) 0 -10px 3px inset; /*Sombra de abajo para la tridimensionalidad*/
+}
+
+.blancas:hover {
+    box-shadow: 
+        rgba(0, 0, 0, 0.3) 10px -2px 20px 0 inset, 
+        rgba(0, 0, 0, 0.1) -5px -2px 20px 0 inset,
+        rgba(0, 0, 0, 0.2) 0 -5px 3px inset; /*Sombra de abajo para la tridimensionalidad*/;
+}
+
+.blancas:first-of-type:hover { box-shadow: rgba(0, 0, 0, 0.3) -5px -5px 20px 0 inset; }
+
+/* .cuerpo {
+    width: 120px;
+    height: 120px;
+    background: rgb(192,0,255);
+    background: linear-gradient(-45deg,
+    rgba(192,0,255,1) 40%, 
+    rgba(55,7,155,1) 40%, 
+    rgba(9,9,121,1) 55%,
+    rgba(27, 236, 205,1) 55%,
+    rgb(27, 236, 205) 65%,
+    rgba(9,9,121,1) 65%, 
+    rgba(9,9,121,1) 79%,
+    rgba(27, 236, 205,1) 79%);
+    border-radius: 0 50% 10px 50%;
+    transform:rotate(-45deg);
+
+}
+
+.cola1 {
+    border-top:50px solid  rgba(255,255,255,0);
+    border-bottom:50px solid rgba(255,255,255,0);
+    border-right:100px solid rgb(27, 236, 205);
+}
+
+.pez {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    animation:
+    nadar 2s linear infinite 0s alternate;
+    border:1px solid;
+}
+
+@keyframes nadar {
+    0% {left: 0;}
+    100% {left: calc(100% - 240px);}
+} */
+
+.ejercicio:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+.ojo {
+    border:1px solid black;
+    background-color: #FFF;
+    width: 100px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
+.pupila {
+    position:relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color:#000;
+    animation: mover 1s ease-in-out infinite 0s alternate;
+}
+
+@keyframes mover {
+    0% {left:0;}
+    100% {left:calc(100% - 40px);}
+}
+
