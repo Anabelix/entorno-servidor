@@ -5,23 +5,35 @@ try {
     // Utilizar la conexión aquí
     $resultado = $mbd->query('SELECT * FROM Ciclistas');
     $resultado->setFetchMode(PDO::FETCH_ASSOC);
+    $cont=0;
+
     echo "<table>";
     echo "<tr>";
     foreach ($resultado as $fila){
-      foreach ($fila as $clave => $valor){
+        array_walk($fila, function($value, $key){    
+            if ($key == 'id') {
+                $redireccion = $value;
+                
+            } 
+            echo '<td><a href="detalle.php?id=?'.$redireccion.'">'.$value.'</a></td>';
+            
+            
+        });
+        echo "</tr>";
+    }
+    echo "</table>";
 
+
+
+/*     foreach ($resultado as $fila){
+      foreach ($fila as $clave => $valor){
         if(!is_numeric($clave)) {
-            /* $num=1;
-            if ($num<=1) {
-                echo "<td>".$clave."</td>";
-                $num=0;
-            } */
             echo "<td>".$valor . "</td>";
         }
       }
       echo "</tr>";
     }
-    echo "</table>";
+    echo "</table>"; */
 
     // Ya se ha terminado; se cierra
     $resultado = null;
