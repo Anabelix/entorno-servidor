@@ -1,5 +1,5 @@
 <?php
-      /*---------------------------------------------------------------------------ARRAYS---------------------------------------------------------------------------
+      /*---------------------------------------------------------------------------ARRAYS--------------------------------------------------------------
       Los arrays son mapas ordenados en donde una clave (indice) está asociado a un valor.
       Se puede escribir de las siguientes formas: */
       	$array = array(
@@ -47,7 +47,7 @@
       	          "foo" => "bar",
       	          42    => 24,
       	          "multi" => [ "dimensional" => ["array" => "foo"]
-      			                  ]
+      			              ]
       ];
       var_dump($array["foo"]);
       var_dump($array[42]);
@@ -96,7 +96,7 @@
       var_dump(isset($frutasVerano[3])); //false
       echo "<br>";
       
-      /*Con la funcion array_key_exists podemos saber si determinada funcion existe o no en el array.*/
+      /*Con la funcion array_key_exists podemos saber si determinada key existe o no en el array.*/
       var_dump(array_key_exists(0, $frutasVerano)); //true
       
       /*-------------------ARRAY_KEY_EXISTS() VS ISSET()-----------------------

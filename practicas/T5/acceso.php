@@ -10,30 +10,18 @@ try {
     echo "<table>";
     echo "<tr>";
     foreach ($resultado as $fila){
-        array_walk($fila, function($value, $key){    
-            if ($key == 'id') {
-                $redireccion = $value;
-                
-            } 
-            echo '<td><a href="detalle.php?id=?'.$redireccion.'">'.$value.'</a></td>';
-            
-            
-        });
+        if ($fila['id']) $redireccion = $fila['id'];
+        echo '<td><a href="detalle.php?id='.$redireccion.'">'.$fila['nombre'].'</a></td>';
+            if ($fila['num_trofeos']) {
+                echo '<td>';
+                for ($i=0; $i<$fila['num_trofeos']; $i++) {
+                    echo '<i class="fa-solid fa-trophy"></i>';
+                }
+                echo '</td>';
+            }
         echo "</tr>";
     }
     echo "</table>";
-
-
-
-/*     foreach ($resultado as $fila){
-      foreach ($fila as $clave => $valor){
-        if(!is_numeric($clave)) {
-            echo "<td>".$valor . "</td>";
-        }
-      }
-      echo "</tr>";
-    }
-    echo "</table>"; */
 
     // Ya se ha terminado; se cierra
     $resultado = null;
@@ -51,10 +39,14 @@ try {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6a4d1fb5aa.js" crossorigin="anonymous"></script>
     <style>
-        table, th, td {
+        table, th, tr, td {
             border-collapse:collapse;
-            border:1px solid black;
+            border:1px solid #FFF;
+        }
+        td:nth-of-type(2) {
+            text-align:center;
         }
     </style>
     <title>Document</title>
