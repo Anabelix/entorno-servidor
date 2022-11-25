@@ -1,20 +1,21 @@
 <?php
-try {
-    $mbd = new PDO('mysql:host=localhost;dbname=mibasededatos', "anabel", "1234");
+    require('./accesoBases.php');
     
     // Utilizar la conexión aquí
-    $resultado = $mbd->query('SELECT * FROM Ciclistas');
-    $resultado->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt = $dbh->prepare('SELECT * FROM Ciclistas');
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    
     $cont=0;
 
     echo "<table>";
     echo "<tr>";
-    foreach ($resultado as $fila){
-        if ($fila['id']) $redireccion = $fila['id'];
-        echo '<td><a href="detalle.php?id='.$redireccion.'">'.$fila['nombre'].'</a></td>';
-            if ($fila['num_trofeos']) {
+    while ($resultado=$stmt->fetch()) {
+        if ($resultado['id']) $redireccion = $resultado['id'];
+        echo '<td><a href="detalle.php?id='.$redireccion.'">'.$resultado['nombre'].'</a></td>';
+            if ($resultado['num_trofeos']) {
                 echo '<td>';
-                for ($i=0; $i<$fila['num_trofeos']; $i++) {
+                for ($i=0; $i<$resultado['num_trofeos']; $i++) {
                     echo '<i class="fa-solid fa-trophy"></i>';
                 }
                 echo '</td>';
@@ -25,13 +26,7 @@ try {
 
     // Ya se ha terminado; se cierra
     $resultado = null;
-    $mbd = null;
-
-} catch (PDOException $e) {
-    print "¡Error!: " . $e->getMessage() . "\n";
-    die();
-}
-
+    $dbh = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
