@@ -12,7 +12,7 @@
             }
         }
     }
-    inicializaSopaLetras ($tablero, 5, 5);
+    inicializaSopaLetras ($tablero, 7, 7);
 
     function pintaTablero($tablero) {
         echo '<table>';
@@ -31,27 +31,64 @@
     function colocaPalabraHorizontal ($tablero, $palabra) {
 
         $filaAleatoria = rand(0, count($tablero)-1);
+        $columnaAleatoria= rand(0, count($tablero[0])-1);
+        $espacioLibre=count($tablero[$filaAleatoria]) - $columnaAleatoria;
         /* echo $filaAleatoria; */
         
-        if (strlen($palabra)<=count($tablero[$filaAleatoria])) {
-            for ($i=0; $i < strlen($palabra); $i++) { 
-                $tablero[$filaAleatoria][$i]=$palabra[$i];
+        echo "Fila $filaAleatoria <br>";
+        echo "Celda $columnaAleatoria <br>";
+        echo "Tamaño de esa fila: ".count($tablero[$filaAleatoria])."<br>";
+        echo "Espacio libre: ".$espacioLibre;
+        
+
+         if (strlen($palabra) > $espacioLibre) {
+            echo "No entra";
+        } else {
+            echo "Si entra";
+            $cont=0;
+            for ($i=$columnaAleatoria; $i < strlen($palabra)+$columnaAleatoria; $i++) { 
+                $tablero[$filaAleatoria][$i]="<p style='color:red'>$palabra[$cont]</p>";
+                $cont++;
             }
-         } else {
-            echo "LA PALABRA EXCEDE EL TAMAÑO DEL TABLERO";
+            
         }
 
         return $tablero;
     }
-    $tablero=colocaPalabraHorizontal($tablero, "casa");
+    $tablero=colocaPalabraHorizontal($tablero, "pez");
     pintaTablero ($tablero);
 
-    function colocaPalabraVertical (&$tablero, $palabra) {
-        echo "Numero filas tablero: ".count($tablero)."<br>";
-        echo "Numero columnas tablero[0]: ".count($tablero[0])."<br>";
+    function colocaPalabraVertical ($tablero, $palabra) {
+/*         echo "Numero filas tablero: ".count($tablero)."<br>";
+        echo "Numero columnas tablero[0]: ".count($tablero[0])."<br>"; */
+
+        $filaAleatoria = rand(0, count($tablero)-1);
+        $columnaAleatoria= rand(0, count($tablero[0])-1);
+        $espacioLibre=count($tablero)-$filaAleatoria;
+        /* echo $filaAleatoria; */
+        
+        echo "Fila $filaAleatoria <br>";
+        echo "Celda $columnaAleatoria <br>";
+        echo "Tamaño de esa fila: ".count($tablero[$filaAleatoria])."<br>";
+        echo "Espacio libre: ".$espacioLibre;
+        
+       if (strlen($palabra) > $espacioLibre) {
+            echo "No entra";
+        } else {
+            echo "Si entra";
+            $cont=0;
+            for ($i=$filaAleatoria; $i < strlen($palabra)+$filaAleatoria; $i++) { 
+                $tablero[$i][$columnaAleatoria]="<p style='color:red'>$palabra[$cont]</p>";
+                $cont++;
+            }
+            
+        }
+
+        return $tablero;
     }
 
-    colocaPalabraVertical($tablero, "jamon");
+    $tablero=colocaPalabraVertical($tablero, "jamon");
+    pintaTablero($tablero);
 ?>
 
 <!DOCTYPE html>
