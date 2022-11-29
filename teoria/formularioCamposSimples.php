@@ -13,13 +13,14 @@
     echo "<br>";
     echo "<br>";
 
+    
     if (isset($_POST['enviar'])) {
         if (isset($_POST['nombre']) && $_POST['nombre']!="") {
             $nombre = $_POST['nombre'];
         } else {
             $errores['nombre']="*El campo nombre no puede estar vacío.";
         }
-
+        
         if (isset($_POST['edad']) && $_POST['edad']!="") {
             $edad = $_POST['edad'];
         } else {
@@ -47,26 +48,24 @@
         if (isset($_POST['pasatiempos'])) {
             if (!empty($_POST['pasatiempos'])) {
                 $pasatiempos = $_POST['pasatiempos'];
-    
-                echo 'Numero total de pasatiempos seleccionados: '.count($pasatiempos)."<br>";
-                echo 'Pasatiempos seleccionados:'; 
-                echo "<ol>";
-                foreach ($pasatiempos as $key => $value) {
-                    echo '<li>'.$value.'</li>';
-                }
-                echo "</ol>";
             } 
         } else {
             $errores['pasatiempos']="*Debes seleccionar al menos una opción.";
         }
 
-        echo 'Nombre: '.$nombre.'<br>';
+/*         echo 'Nombre: '.$nombre.'<br>';
         echo 'Edad: '.$edad.'<br>';
         echo 'Comentarios: '.$comentarios.'<br>';
         echo 'Estado: '.$estado.'<br>';
         echo 'Idioma: '.$idioma.'<br>';
-        echo "<hr>";
+        echo "<hr>"; */
     }
+
+    function guardar ($datos) {
+        $cadena=implode(";", $datos);
+        file_put_contents('texto.txt', $cadena, FILE_APPEND);
+    }
+    guardar($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -137,9 +136,12 @@
 
         <label for="pasatiempos"><br><br>Selecciona tus pasatiempos favoritos:</label><br>
         <?php
-            foreach ($opcPasatiempos as $key => $value) {
-                $sele = ($pasatiempos == $value)?"checked":"";
-                echo "$value <input type='checkbox' name='pasatiempos[]' value='$value' id='' $sele><br>";                
+            $sele;
+            foreach ($opcPasatiempos as $value) {  
+                if (!empty($_POST['pasatiempos'])) {
+                    $sele=(in_array($value, $_POST['pasatiempos']))?"checked":"";
+                }
+                    echo "$value <input type='checkbox' name='pasatiempos[]' value='$value' id='' $sele><br>";
             }
         ?>
         <?php
