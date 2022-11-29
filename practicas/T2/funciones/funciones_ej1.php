@@ -1,5 +1,6 @@
 <?php
 /*--------------------------EJERCICIO 1-------------------------------*/
+/* Ejercicio 1: ARRAY_MAP, ARRAY_REDUCE y ARRAY_FILTER */
 //APARTADO A:
 $personas = [ 
     ["Jorge", 1], 

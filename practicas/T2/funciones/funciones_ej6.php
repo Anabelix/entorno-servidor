@@ -1,4 +1,5 @@
 <?php
+/* Ejercicio 6: ARRAY_SLICE, ARRAY_PUSH, SORT, RAND */
     $numerosAleatorios=[];
 
     function generarArray () {

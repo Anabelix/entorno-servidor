@@ -1,4 +1,5 @@
 <?php
+/* Ejercicio 3: ARRAY_WALK, ARRAY_MAP, ARRAY_REPLACE */
     $usuarios = [
         "jorge" => "1234",
         "amparo" => "admin",

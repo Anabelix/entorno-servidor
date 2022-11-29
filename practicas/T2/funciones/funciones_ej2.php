@@ -1,5 +1,6 @@
 <?php
 /*--------------------------EJERCICIO 2-------------------------------*/
+/* Ejercicio 2: ARRAY_INTERSECT, ARRAY_SEARCH y ARRAY_REPLACE */    
     $primerArray = [1, 5, 7, 22, 4, 53, 67, 150, 29, 6, 44];
     $segundoArray = [53, 3, 7 , 29, 33, 44, 150, 1, 67, 22, 12];
     $interseccion = array_intersect($primerArray, $segundoArray);

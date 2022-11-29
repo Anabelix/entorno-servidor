@@ -30,10 +30,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/estilos_funciones.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Secular+One&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Secular+One&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            margin-bottom: 2%;
+            text-align: center;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .contenedor {
+            width: 60%;
+            margin: 0 auto;
+            box-shadow: 0px 0px 10px 0px rgba(46, 46, 46, 0.15);
+            border-radius: 25px;
+        }
+
+        h1 { 
+            font-family: 'Indie Flower', cursive; 
+            padding-top:2%; 
+            margin-top: 2%; 
+        }
+
+        h2 {
+            border-bottom: 1px dashed black;
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 2%;
+            padding: 1%;
+        }
+
+        span {
+            width: fit-content;
+            margin:0.3%;
+            padding:0.3%;
+            font-family: 'Indie Flower', cursive;
+            font-size: 1.2rem;
+        }
+
+        .ejercicios>div:nth-child(even){
+            background-color: rgb(232, 255, 231);
+            padding: 2%;
+        }
+        .ejercicios>div:nth-child(even) > h2{
+            color:rgb(7, 31, 0);
+        }
+        .ejercicios>div:nth-child(even) > p {
+            background-color: rgb(211, 255, 197);
+        }
+
+
+        .ejercicios>div:nth-child(odd){
+            background-color: rgb(255, 251, 231);
+            padding: 2%;
+        }
+        .ejercicios>div:nth-child(odd) > h2 {
+            color: rgb(59, 53, 0);
+        }
+        .ejercicios>div:nth-child(odd) > p {
+            background-color: rgb(255, 249, 197);
+        }
+    </style>
+    
+
     <title>Ejercicios funciones</title>
 </head>
 <body>

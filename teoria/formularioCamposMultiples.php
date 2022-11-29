@@ -1,25 +1,26 @@
 <?php
-    require('printeoRechulon.php');
+    /* require('printeoRechulon.php');
     printeoMono($_POST, "POST");
     echo "<br>";
-    echo "<br>";
-    if (isset($_POST['pasatiempos'])) {
-        if (!empty($_POST['pasatiempos'])) {
-            $pasatiempos = $_POST['pasatiempos'];
-
-            echo 'Pasatiempos seleccionados:'; 
-            echo '<br>Numero total: '.count($pasatiempos)."<br>";
-            echo "<ol>";
-            foreach ($pasatiempos as $key => $value) {
-                echo '<li>'.$value.'</li>';
+    echo "<br>"; */
+    if (isset($_POST['enviar'])) {
+        if (isset($_POST['pasatiempos'])) {
+            if (!empty($_POST['pasatiempos'])) {
+                $pasatiempos = $_POST['pasatiempos'];
+    
+                echo 'Numero total de pasatiempos seleccionados: '.count($pasatiempos)."<br>";
+                echo 'Pasatiempos seleccionados:'; 
+                echo "<ol>";
+                foreach ($pasatiempos as $key => $value) {
+                    echo '<li>'.$value.'</li>';
+                }
+                echo "</ol>";
             }
-            echo "</ol>";
+    
+        } else {
+            echo "No existe";
         }
-
-    } else {
-        echo "No existe";
     }
-
     echo "<hr>";
 ?>
 <!DOCTYPE html>

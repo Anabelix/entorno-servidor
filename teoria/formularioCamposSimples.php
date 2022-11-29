@@ -1,16 +1,17 @@
 <?php
     $nombre="";
-    $edad;
+    $edad="";
     $idioma="";
     $estado="";
     $comentarios="";
+    $pasatiempos="";
     $opcEstado = ["soltero", "casado", "divorciado"];
     $opcIdiomas = ["","español", "inglés", "francés"];
+    $opcPasatiempos = ["Escuchar musica", "Leer", "Ver series", "Hacer deporte", "Hacer manualidades"];
 
     print_r($_POST);
     echo "<br>";
     echo "<br>";
-
 
     if (isset($_POST['enviar'])) {
         if (isset($_POST['nombre']) && $_POST['nombre']!="") {
@@ -36,12 +37,28 @@
         } else {
             $errores['estado']="*El campo estado no puede estar vacío.";
         }
+        
         if (isset($_POST['idioma']) && $_POST['idioma']!="") {
             $idioma = $_POST['idioma'];
         } else {
             $errores['idioma']="*El campo idioma no puede estar vacío.";
         }
 
+        if (isset($_POST['pasatiempos'])) {
+            if (!empty($_POST['pasatiempos'])) {
+                $pasatiempos = $_POST['pasatiempos'];
+    
+                echo 'Numero total de pasatiempos seleccionados: '.count($pasatiempos)."<br>";
+                echo 'Pasatiempos seleccionados:'; 
+                echo "<ol>";
+                foreach ($pasatiempos as $key => $value) {
+                    echo '<li>'.$value.'</li>';
+                }
+                echo "</ol>";
+            } 
+        } else {
+            $errores['pasatiempos']="*Debes seleccionar al menos una opción.";
+        }
 
         echo 'Nombre: '.$nombre.'<br>';
         echo 'Edad: '.$edad.'<br>';
@@ -103,7 +120,7 @@
             }
         ?>
 
-        <label for="idioma">Idiomas: </label>
+        <br><label for="idioma">Idiomas: </label>
         <select name="idioma" id="idioma">
         <?php
             array_walk($opcIdiomas, function($value, $key, $idioma) {
@@ -118,7 +135,20 @@
             }
         ?>
 
-        <input type="submit" value="enviar" name="enviar">
+        <label for="pasatiempos"><br><br>Selecciona tus pasatiempos favoritos:</label><br>
+        <?php
+            foreach ($opcPasatiempos as $key => $value) {
+                $sele = ($pasatiempos == $value)?"checked":"";
+                echo "$value <input type='checkbox' name='pasatiempos[]' value='$value' id='' $sele><br>";                
+            }
+        ?>
+        <?php
+            if (isset($errores['pasatiempos'])) {
+                echo "<p>".$errores['pasatiempos']."</p>";
+            }
+        ?>
+
+        <br><input type="submit" value="enviar" name="enviar">
     </form>
 </body>
 </html>

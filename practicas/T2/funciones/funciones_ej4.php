@@ -1,4 +1,5 @@
 <?php
+/* Ejercicio 4: ARRAY_MERGE */
     $a1=array("a"=>"rojo");
     $a2=array("b"=>"añil", "c"=>"violeta");
     $a3=array("d"=>"verde","f"=>"naranja");
