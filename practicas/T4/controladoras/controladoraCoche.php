@@ -23,7 +23,10 @@
     $coche5->setMatricula("1004")->setMarca("Audi")->setCarga(20);
     $coche5->cargar($coche2);
 
-    array_push($coches, $coche1, $coche4, $coche5);
+    $cocheCaca = new CocheGrua ();
+    $cocheCaca->setMatricula('2000')->setMarca('caca')->setCarga(30);
+
+    array_push($coches, $coche1, $coche4, $coche5, $cocheCaca);
 ?>
 <!DOCTYPE html>
 <html lang="en">
