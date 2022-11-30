@@ -1,0 +1,131 @@
+Las constantes se pueden declarar a través de 2 contextos; tanto en el
+
+    contexto global, usando DEFINE(), lo cual me va a facilitar su uso fuera del alcance de una clase declarada lo que me va a permitir tenerla disponible para otras y la propia
+
+Ejemplo
+
+<?php
+
+define('IVA', 16);
+
+class Example
+{
+
+}
+
+//esto es correcto
+<?php
+
+class Example{
+    const IVA = 16;
+
+    function dimeIVA(){
+        return self::IVA;
+    }
+}
+
+echo Example::IVA;
+
+    A un alcance local, haciendo uso de la keyword const y declarandolas a nivel del cuerpo de la clase donde estará contenida
+
+Ejemplo.
+
+<?php
+
+class Example
+{
+const IVA = 16;
+}
+
+Además de lo anterior, la declaración de const en un condicional no es válido mientras que define() es aceptado
+
+//esto es válido
+<?php
+
+if(1 === 1){
+    define("IVA", 19);
+    echo IVA;
+}
+
+//esto no es válido
+<?php
+
+if(1 === 1){
+    const "IVA" = 19;
+    echo IVA;
+}
+
+    Las declaraciones de constantes globales no son recomendadas de manera generalizada, pues su declaración y valor pudiera entrar en conflicto con otras partes del código escrito
+
+Del mismo modo en la declaración de const puedes asignarle un valor o un arreglo de valores; del modo siguiente
+
+const PAGOS = [123, 56.7, 1234.33];
+print_r(PAGOS);
+Array ( [0] => 123 [1] => 56.7 [2] => 1234.33 )
+
+Del mismo modo en la declaración define() a partir de PHP 7 puedes asignarle mas de un valor a una constante; del modo siguiente
+
+define('PAGOS', array(
+    123,
+    1233.67,
+    2333
+));
+
+print_r(PAGOS);
+Array ( [0] => 123 [1] => 1233.67 [2] => 2333 )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Muchas veces he visto en internet que se preguntaba cuando usar Self o This en php y la respuesta es bastante sencilla:
+
+    Self hace referencia a la clase actual y se usando cuando instancia dicha clase, es decir se usan métodos estáticos.
+    This hace referencia al objeto actual, es decir, cuando una clase si tiene instancia. No se puede hacer referencia a métodos estáticos usando this pero si a métodos públicos, privados y protegidos.
+
+
+class Saludos{
+
+ static function textoSaludo(string $nombre): string {
+    return 'HOLA ' . $nombre;
+ }
+
+ static function mostrarSaludo(string $nombre){
+    echo self::textoSaludo($nombre);
+ }
+}
+
+Saludos::mostrarSaludo('Gonzalo');
+
+
+class Saludos{
+
+ private function textoSaludo(string $nombre): string {
+    return 'HOLA ' . $nombre;
+ }
+
+ public function mostrarSaludo(string $nombre){
+    echo $this->textoSaludo($nombre);
+ }
+}
+
+
