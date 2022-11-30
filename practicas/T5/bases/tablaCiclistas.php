@@ -48,6 +48,10 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <a href="insertarTabla.php">Insertar</a>
+    <a href="insertar.php">Insertar a mano</a>
+    <a href="update.php">Update a mano</a>
+    <a href="delete.php">Delete a mano</a>
+    <a href="tablaCiclistas.php">Volver a la tabla</a>
 </body>
 </html>
