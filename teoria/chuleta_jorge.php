@@ -82,14 +82,13 @@ if ($result > 0) {
 $id = $db->lastInsertId();
 
 //INSERT
-$insert = $db->prepare('INSERT INTO 'table' ('col', 'col2') VALUES (?, ?)');
+$insert = $db->prepare("INSERT INTO 'table' ('col', 'col2') VALUES (?, ?)");
 $insert->execute(["$value", "$value2"]);
 
-$insert=$db->prepare('INSERT INTO 'table' ('col', 'col2', 'col3', 'col4', 'col5', 'col6', 'col7', 'col8', 'col9', 'col10') VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+$insert=$db->prepare("INSERT INTO 'table' ('col', 'col2', 'col3', 'col4', 'col5', 'col6', 'col7', 'col8', 'col9', 'col10') VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $insert->execute(["$value", "$value2", "$value3", "$value4", "$value5", "$value6", "$value7", "$value8", "$value9", "$value10"]);
 
-$insert = $link->prepare('INSERT INTO 'table' ('col', 'col2', 'col3')
-    VALUES (:avalue, :avalue2, :avalue3)');
+$insert = $link->prepare("INSERT INTO 'table' ('col', 'col2', 'col3') VALUES (:avalue, :avalue2, :avalue3)");
 $insert->execute([
     'avalue' => '1',
     'avalue2' => $value2,

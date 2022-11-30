@@ -2,6 +2,7 @@
     require('./accesoBases.php');
     
     // Utilizar la conexión aquí
+
     $stmt = $dbh->prepare('SELECT * FROM Ciclistas');
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
@@ -38,7 +39,7 @@
     <style>
         table, th, tr, td {
             border-collapse:collapse;
-            border:1px solid #FFF;
+            border:1px solid red;
         }
         td:nth-of-type(2) {
             text-align:center;

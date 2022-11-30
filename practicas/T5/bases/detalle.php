@@ -1,7 +1,6 @@
 <?php
     require('accesoBases.php');
     $id=$_GET['id'];
-        
     $stmt = $dbh->prepare('SELECT * FROM Ciclistas WHERE id=:id');
     $stmt->bindParam(':id', $id);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
