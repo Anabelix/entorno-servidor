@@ -1,8 +1,8 @@
 <?php
     $tablero = [];
-// ccccc
-// ddddd
-// eeeee
+    const MIN_OPC = 0;
+    const MAX_OPC = 3;
+
     function inicializaSopaLetras(&$tablero, $n, $m) {
         $letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm','n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
         for ($i=0; $i < $n; $i++) { 
@@ -26,22 +26,13 @@
         echo '</table>';
     }
 
-    pintaTablero ($tablero);
-
     function colocaPalabraHorizontal ($tablero, $palabra) {
 
         $filaAleatoria = rand(0, count($tablero)-1);
         $columnaAleatoria= rand(0, count($tablero[0])-1);
         $espacioLibre=count($tablero[$filaAleatoria]) - $columnaAleatoria;
-        /* echo $filaAleatoria; */
-        
-        echo "Fila $filaAleatoria <br>";
-        echo "Celda $columnaAleatoria <br>";
-        echo "Tamaño de esa fila: ".count($tablero[$filaAleatoria])."<br>";
-        echo "Espacio libre: ".$espacioLibre;
-        
 
-         if (strlen($palabra) > $espacioLibre) {
+        if (strlen($palabra) > $espacioLibre) {
             echo "No entra";
         } else {
             echo "Si entra";
@@ -50,27 +41,21 @@
                 $tablero[$filaAleatoria][$i]="<p style='color:red'>$palabra[$cont]</p>";
                 $cont++;
             }
-            
         }
 
         return $tablero;
     }
-    $tablero=colocaPalabraHorizontal($tablero, "pez");
-    pintaTablero ($tablero);
 
     function colocaPalabraVertical ($tablero, $palabra) {
-/*         echo "Numero filas tablero: ".count($tablero)."<br>";
-        echo "Numero columnas tablero[0]: ".count($tablero[0])."<br>"; */
 
         $filaAleatoria = rand(0, count($tablero)-1);
         $columnaAleatoria= rand(0, count($tablero[0])-1);
         $espacioLibre=count($tablero)-$filaAleatoria;
-        /* echo $filaAleatoria; */
         
-        echo "Fila $filaAleatoria <br>";
+/*         echo "Fila $filaAleatoria <br>";
         echo "Celda $columnaAleatoria <br>";
         echo "Tamaño de esa fila: ".count($tablero[$filaAleatoria])."<br>";
-        echo "Espacio libre: ".$espacioLibre;
+        echo "Espacio libre: ".$espacioLibre; */
         
        if (strlen($palabra) > $espacioLibre) {
             echo "No entra";
@@ -81,14 +66,72 @@
                 $tablero[$i][$columnaAleatoria]="<p style='color:red'>$palabra[$cont]</p>";
                 $cont++;
             }
-            
         }
 
         return $tablero;
     }
 
-    $tablero=colocaPalabraVertical($tablero, "jamon");
-    pintaTablero($tablero);
+
+    function colocaPalabraHorizontalInvertida ($tablero, $palabra) {
+
+        $filaAleatoria = rand(0, count($tablero)-1);
+        $columnaAleatoria= rand(0, count($tablero[0])-1);
+        
+        if (strlen($palabra) > ($columnaAleatoria+1)) {
+            echo "No entra";
+        } else {
+            echo "Si entra";
+            $cont=0;
+            for ($i=$columnaAleatoria; $i>=(($columnaAleatoria+1)-strlen($palabra)); $i--) { 
+                $tablero[$filaAleatoria][$i]="<p style='color:red'>$palabra[$cont]</p>";
+                $cont++;
+            }
+        }
+
+        return $tablero;
+    }
+
+    function colocaPalabraVerticalInvertida ($tablero, $palabra) {
+        /*  echo "Numero filas tablero: ".count($tablero)."<br>";
+        echo "Numero columnas tablero[0]: ".count($tablero[0])."<br>";*/
+        
+        $filaAleatoria = rand(0, count($tablero)-1);
+        $columnaAleatoria= rand(0, count($tablero[0])-1);
+        
+        if (strlen($palabra) > ($filaAleatoria+1)) {
+            echo "No entra";
+        } else {
+            echo "Si entra";
+            $cont=0;
+            for ($i=$filaAleatoria; $i >= ($filaAleatoria+1)-strlen($palabra); $i--) { 
+                $tablero[$i][$columnaAleatoria]="<p style='color:red'>$palabra[$cont]</p>";
+                $cont++;
+            }
+        }
+        
+        return $tablero;
+    }
+
+    function colocaPalabra ($tablero, $palabra) {
+        $opc = rand(MIN_OPC, MAX_OPC);
+        switch ($opc) {
+            case 0:
+                $tablero = colocaPalabraHorizontal($tablero, $palabra);
+                break;
+            case 1:
+                $tablero = colocaPalabraVertical($tablero, $palabra);
+                break;
+            case 2:
+                $tablero = colocaPalabraHorizontalInvertida($tablero, $palabra);
+                break;
+            case 3:
+                $tablero = colocaPalabraVerticalInvertida($tablero, $palabra);
+                break;
+        }
+
+        pintaTablero($tablero);
+    }
+    colocaPalabra($tablero, 'LUPA')
 ?>
 
 <!DOCTYPE html>
