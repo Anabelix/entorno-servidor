@@ -5,67 +5,61 @@
     $estado="";
     $comentarios="";
     $pasatiempos="";
+    $datos=[];
+    $errores=[];
+    $sele="";
     $opcEstado = ["soltero", "casado", "divorciado"];
     $opcIdiomas = ["","español", "inglés", "francés"];
     $opcPasatiempos = ["Escuchar musica", "Leer", "Ver series", "Hacer deporte", "Hacer manualidades"];
 
-    print_r($_POST);
-    echo "<br>";
-    echo "<br>";
-
-    
     if (isset($_POST['enviar'])) {
         if (isset($_POST['nombre']) && $_POST['nombre']!="") {
-            $nombre = $_POST['nombre'];
+            $datos['nombre'] = ucfirst($_POST['nombre']);
         } else {
             $errores['nombre']="*El campo nombre no puede estar vacío.";
         }
         
         if (isset($_POST['edad']) && $_POST['edad']!="") {
-            $edad = $_POST['edad'];
+            $datos['edad'] = $_POST['edad'];
         } else {
             $errores['edad']="*El campo edad no puede estar vacío.";
         }
 
         if (isset($_POST['comentarios']) && $_POST['comentarios']!="") {
-            $comentarios = $_POST['comentarios'];
+            $datos['comentarios'] = $_POST['comentarios'];
         } else {
             $errores['comentarios']="*El campo comentarios no puede estar vacío.";
         }
 
         if (isset($_POST['estado']) && $_POST['estado']!="") {
-            $estado = $_POST['estado'];
+            $datos['estado'] = $_POST['estado'];
         } else {
             $errores['estado']="*El campo estado no puede estar vacío.";
         }
         
         if (isset($_POST['idioma']) && $_POST['idioma']!="") {
-            $idioma = $_POST['idioma'];
+            $datos['idioma'] = $_POST['idioma'];
         } else {
             $errores['idioma']="*El campo idioma no puede estar vacío.";
         }
-
-        if (isset($_POST['pasatiempos'])) {
-            if (!empty($_POST['pasatiempos'])) {
-                $pasatiempos = $_POST['pasatiempos'];
-            } 
+        if (isset($_POST['pasatiempos']) && !empty($_POST['pasatiempos'])) {
+                $datos['pasatiempos'] = strtolower(implode(", ", $_POST['pasatiempos']));
         } else {
             $errores['pasatiempos']="*Debes seleccionar al menos una opción.";
         }
 
-/*         echo 'Nombre: '.$nombre.'<br>';
-        echo 'Edad: '.$edad.'<br>';
-        echo 'Comentarios: '.$comentarios.'<br>';
-        echo 'Estado: '.$estado.'<br>';
-        echo 'Idioma: '.$idioma.'<br>';
-        echo "<hr>"; */
-    }
 
-    function guardar ($datos) {
-        $cadena=implode(";", $datos);
-        file_put_contents('texto.txt', $cadena, FILE_APPEND);
+        if (count($errores) == 0) {
+            $cadena=implode(";", $datos);
+            echo $cadena;        
+            file_put_contents('texto.txt', "$cadena;\n", FILE_APPEND);
+            //Redirect
+            header("Location: infoForm.php");
+    
+            //Exit
+            exit();
+        }
     }
-    guardar($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -134,14 +128,14 @@
             }
         ?>
 
-        <label for="pasatiempos"><br><br>Selecciona tus pasatiempos favoritos:</label><br>
+        <label for="pasatiempos"><br>Selecciona tus pasatiempos favoritos:</label><br>
         <?php
             $sele;
             foreach ($opcPasatiempos as $value) {  
                 if (!empty($_POST['pasatiempos'])) {
                     $sele=(in_array($value, $_POST['pasatiempos']))?"checked":"";
                 }
-                    echo "$value <input type='checkbox' name='pasatiempos[]' value='$value' id='' $sele><br>";
+                    echo "$value <input type='checkbox' name='pasatiempos[]' value='$value' $sele><br>";
             }
         ?>
         <?php
@@ -151,6 +145,7 @@
         ?>
 
         <br><input type="submit" value="enviar" name="enviar">
+        <br><a href="infoForm.php">Ver listado</a>
     </form>
 </body>
 </html>
