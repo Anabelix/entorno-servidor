@@ -5,32 +5,32 @@
     Random:  RAND()*/
     $min=0;
     $max=20;
-    echo rand($min, $max)."<br><hr>";
+    echo "RAND(): ".rand($min, $max)."<br><hr>";
 
     /* Redondeo: ROUND()*/
     $decimal=3.4561;
     $precision=2;
-    echo round($decimal, $precision)."<br><hr>";
+    echo "ROUND(): ".round($decimal, $precision)."<br><hr>";
     
     /* Redondeo hacia arriba: CEIL() */
     echo "Original: 4.2190<br>";
-    echo ceil(4.2190)."<br><hr>";
+    echo "CEIL(): ".ceil(4.2190)."<br><hr>";
     
     /* Redondeo hacia abajo: FLOOR() */
-    echo 4.2190."<br>";
-    echo floor(4.2190)."<br><hr>";
+    echo "Original: 4.2190<br>";
+    echo "FLOOR(): ".floor(4.2190)."<br><hr>";
 
     /*------------------------------------------------------------------------*/
     /* STRINGS
     Modificar/extraer por caracteres: */
     $palabra = "Anabel";
     $i=0;
-    echo $palabra[$i]."<hr>";
+    echo "EXTRAER LETRA: ".$palabra[$i]."<hr>";
 
     /* Extraer partes: SUBSTR() */
     $inicio=0;
     $fin=3;
-    echo substr($palabra, $inicio, $fin)."<hr>";
+    echo "EXTRAER LETRAS: ".substr($palabra, $inicio, $fin)."<hr>";
 
     /* Extraer partes de una cadena con un delimitador. DEVUELVE ARRAY: EXPLODE()
     explode(string delimitador, $cadena); */
@@ -40,7 +40,7 @@
     echo "<hr>";
 
     /* Convierte los elementos de un array en un string: IMPLODE() */
-    echo implode(', ', $arr)."<hr>";
+    echo "IMPLODE(): ".implode(', ', $arr)."<hr>";
 
     /* Convierte un string en un array. DEVUELVE ARRAY: STR_SPLIT()
     str_split($cadena, $tamaño); */
@@ -50,20 +50,17 @@
 
     /* Eliminar espacios en blanco al principio y al final: TRIM() */
     $frase = "  Hola me llamo Anabel   ";
-    echo "|".$frase."|<br>";
-    print("|".trim($frase)."|");
-
-    echo "<hr>";
+    print("BORRAR ESPACIOS PRINCIPIO Y FIN: |".trim($frase)."|")."<hr>";
 
     /* Lowercase: STRTOLOWER() */
-    echo strtolower($frase)."<hr>";
+    echo "STRTOLOWER(): ".strtolower($frase)."<hr>";
 
     /* Uppercase: STRTOUPPER()*/
-    echo strtoupper($frase)."<hr>";
+    echo "STRTOUPPER() ".strtoupper($frase)."<hr>";
 
     /* Convetir la primera letra de una palabra en mayuscula: UCFISRT()*/
-    echo ucfirst($frase)."<hr>";
+    echo "UCFIRST(): ".ucfirst($frase)."<hr>";
 
     /* Convertir la primera letra de cada palabra de una cadena en mayuscula: UCWORDS() */
-    echo ucwords($frase)."<hr>";
+    echo "UCWORDS(): ".ucwords($frase)."<hr>";
 ?>
