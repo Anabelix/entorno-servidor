@@ -1,3 +1,4 @@
 Anabel;23;tengo miedo;soltero;español;escuchar musica, ver series, hacer manualidades;
 Lucía;30;buena profe;casado;inglés;leer, ver series, hacer deporte;
 Juan;50;me aburro;divorciado;francés;leer;
+Cristina;47;prueba de errores;soltero;inglés;escuchar musica, hacer deporte;
