@@ -1,0 +1,17 @@
+* {
+    margin:0; 
+    padding:0;
+    box-sizing: border-box;
+}
+.contenedor {width:60%; margin: 0 auto;}
+h1 {margin-top: 2%; border-bottom:1px solid black;}
+p {margin: 2% 0% 5% 0%;}
+footer {
+    width: 100%;
+    padding:2%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
