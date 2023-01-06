@@ -1,5 +1,22 @@
 <?php
 $contenidos = [
+    "INTRODUCCIÓN"=>"Bienvenida al curso Todo PHP, de novato a experto
+    Breve historia de PHP
+    ¿Cómo funciona PHP?
+    ¿Qué necesitamos?
+    ¿Cómo preguntar en el curso?
+    Plugins de SublimeText para PHP (opcional)
+    Instalar el Apache + PHP + MySQL: XAMPP
+    Instalar MAMP en una computadora con Windows
+    Instalar MAMP en una Mac
+    Nuestra primera página: Hola mundo
+    Mezclar HTML y PHP
+    Comentarios y otras cosas
+    Ver la configuración del PHP con phpinfo()
+    Nuevas características de PHP 8.0
+    Nuevas características de PHP 8.1.
+    Nuevas características de PHP 8.2.
+    Apuntes a la sección 1: Introducción a PHP",
     "TIPOS DE DATOS Y VARIABLES" => "Variables
     Tipos de datos: cadenas
     Concatenación de cadenas
@@ -190,8 +207,7 @@ $contenidos = [
     Crear una barra de verificación de políticas de Cookies: HTML
     Apuntes a la sección 14: Manejo de galletas o cookies",
 
-    "CONEXION CON MYSQL"=>"
-    Crear una tabla desde PHPMySQL
+    "CONEXION CON MYSQL"=>"Crear una tabla desde PHPMySQL
     Conectar una base de datos MySQL con PHP
     Las sentencias include y require
     Insertar un registro en la base de datos
@@ -601,7 +617,62 @@ $contenidos = [
     eBook del curso Programación Orientada a Objetos con PHP",
 ];
 
-foreach ($contenidos as $key => $value) {
-    var_dump(explode("\n", $contenidos[$key]));
+function pintarTabla ($contenidos) {
+    echo "<table>";
+    foreach ($contenidos as $key => $value) {
+        $i++;
+        echo '<tr><th colspan="2">UNIDAD '.$i.": ".$key.'</th></tr>';
+        $datos=explode("\n", $contenidos[$key]);
+        foreach ($datos as $key => $value) {
+            echo '<tr><td>'.trim($value).'</td>';
+            echo '<td><input type="checkbox" name="sele" id="sele"></td></tr>';
+        }
+    }
+    echo "</table>";
 }
+
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenidos Udemy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size:13px;
+        }
+        h1, th {
+            text-align:center;
+        }
+        table, th, td {
+            border-collapse:collapse;
+            border:1px solid;
+        }
+        table {
+            width:70%;
+            margin: 0 auto;
+        }
+        th, td {
+            padding: 2px;
+            width:fit-content;
+        }
+        th {
+            background-color: #eaeaea;
+            width: fit-content;
+        }
+        td:nth-of-type(even) {
+            background-color: #eaeaea;
+        }
+    </style>
+</head>
+<body>
+    <h1>CURSO PHP DE UDEMY</h1>
+    <?=pintarTabla($contenidos)?>
+</body>
+</html>

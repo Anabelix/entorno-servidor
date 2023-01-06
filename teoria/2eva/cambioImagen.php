@@ -25,7 +25,7 @@ if (isset($_POST['imagenes'])) {
     <title>Fondo</title>
     <style>
         body {
-            background-image: url("<?=$fondo?>.jpeg");
+            background-image: url("./img/<?=$fondo?>.jpeg");
             background-size:cover;}
         label {color: #FFF;}
     </style>
