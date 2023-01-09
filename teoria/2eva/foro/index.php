@@ -31,7 +31,7 @@ if (isset($_POST['iniciar'])) {
       $_SESSION['user']=$username;
       $_SESSION['tiempo']=time();
       print("Clave correcta");
-      /* header("Location: ../sesiones/privado.php"); */
+      header("Location: feed.php");
     } else{
         print("Clave errónea");
     }
