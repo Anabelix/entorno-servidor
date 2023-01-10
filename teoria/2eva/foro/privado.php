@@ -10,7 +10,9 @@ function clean_input($data)
     return $data;
 }
 
-
+if (!isset($_SESSION['user'])) {
+    header('Location: no.php');
+} else {
 if (isset($_POST['Twittear'])) {
     if (isset($_POST['tweet']) && $_POST['tweet'] != "") {
         $tweet = clean_input($_POST['tweet']);
@@ -59,8 +61,7 @@ function pintar($consulta)
         echo '<div class="tw"><span>' . $info['username'] . ' ' . $tiempo . '</span><p>' . $info['mensaje'] . '</p></div>';
     }
 }
-
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
