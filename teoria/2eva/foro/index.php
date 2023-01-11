@@ -1,8 +1,8 @@
 <?php
-require('./accesoBases.php');
+require './accesoBases.php';
 session_start();
-$username="";
-$passw="";
+$username = "";
+$passw = "";
 
 function clean_input($data)
 {
@@ -21,18 +21,18 @@ if (isset($_POST['iniciar'])) {
     }
 
     $consulta = $dbh->prepare("SELECT * FROM users WHERE username = :username LIMIT 1");
-    $consulta->execute([':username'=>$username]);
-    $user=$consulta->fetch();
+    $consulta->execute([':username' => $username]);
+    $user = $consulta->fetch();
     echo "<pre>";
     print_r($user);
     echo "</pre>";
 
-    if(isset($user) && password_verify($passw, $user['pass'])){
-      $_SESSION['user']=$username;
-      $_SESSION['tiempo']=time();
-      print("Clave correcta");
-      header("Location: privado.php");
-    } else{
+    if (isset($user) && password_verify($passw, $user['pass'])) {
+        $_SESSION['user'] = $username;
+        $_SESSION['tiempo'] = time();
+        print("Clave correcta");
+        header("Location: privado.php");
+    } else {
         print("Clave errónea");
     }
 }
@@ -44,32 +44,34 @@ if (isset($_POST['registrar'])) {
     if (isset($_POST['pass']) && $_POST['pass'] != "") {
         $passw = password_hash(clean_input($_POST['pass']), PASSWORD_DEFAULT);
     }
-    
-    // Utilizar la conexión aquí
-    $stmt = $dbh->prepare("INSERT INTO users (id, username, pass) VALUES (:id,:username,:pass)");
-    
-    //Aqui mete los datos
-    $username = $username;
-    $pass = $passw;
-    
-    /* $stmt->setFetchMode(PDO::FETCH_ASSOC); */
-    
-    //Aqui ejecutas para pegar los valores en la sentencia
-    if ($stmt->execute([
-        ':id'=>$id,
-        ':username'=>$username,
-        ':pass'=>$pass
-    ])) {
-        echo 'Insercción realizada!!!!!';
-    } else {
-        echo 'Insercción fallida :(';
-    }
 
+    $consulta = $dbh->prepare("SELECT username FROM users WHERE username = :username LIMIT 1");
+    if ($consulta->execute([
+        ':username' => $username,
+    ])) {
+        if ($consulta->fetchAll() != null) {
+            echo "Usuario existente";
+        } else {
+            echo "Nombre de usuario no existente";
+            $username = $username;
+            $pass = $passw;
+            $stmt = $dbh->prepare("INSERT INTO users (id, username, pass) VALUES (:id,:username,:pass)");
+        
+            if ($stmt->execute([
+                ':id' => $id,
+                ':username' => $username,
+                ':pass' => $pass,
+            ])) {
+                echo 'Insercción realizada!!!!!';
+            } else {
+                echo 'Insercción fallida :(';
+            }
+        } 
+    }
     // Ya se ha terminado; se cierra
     $resultado = null;
     $dbh = null;
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -91,7 +93,6 @@ if (isset($_POST['registrar'])) {
         <label for="pass">Contraseña:</label>
         <input type="password" name="pass" id="pass">
 
-        <!-- <label for="recuerda"><input type="checkbox" name="recuerda" id="recuerda">Recuerdame</label> -->
         <div class="botones">
             <input type="submit" value="Regístrate" name="registrar">
             <input type="submit" value="Iniciar sesión" name="iniciar">
