@@ -31,7 +31,7 @@ if (isset($_POST['iniciar'])) {
         $_SESSION['user'] = $username;
         $_SESSION['tiempo'] = time();
         print("Clave correcta");
-        header("Location: privado.php");
+        header("Location: feed.php");
     } else {
         print("Clave errónea");
     }
@@ -86,7 +86,7 @@ if (isset($_POST['registrar'])) {
 <body>
     <div class="contenedor">
     <form action="" method="post">
-        <h1>Twitter</h1>
+        <h1>Foro</h1>
         <label for="username">Usuario:</label>
         <input type="text" name="username" id="username" value=<?=$username?>>
 
