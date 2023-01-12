@@ -38,14 +38,15 @@ if (isset($_POST['iniciar'])) {
 }
 
 if (isset($_POST['registrar'])) {
+    
     if (isset($_POST['username']) && $_POST['username'] != "") {
         $username = clean_input($_POST['username']);
     }
     if (isset($_POST['pass']) && $_POST['pass'] != "") {
         $passw = password_hash(clean_input($_POST['pass']), PASSWORD_DEFAULT);
     }
-
-    $consulta = $dbh->prepare("SELECT username FROM users WHERE username = :username LIMIT 1");
+    header('Location: registrar.php?username='.$username.'?ps='.$passw.'');
+    /*$consulta = $dbh->prepare("SELECT username FROM users WHERE username = :username LIMIT 1");
     if ($consulta->execute([
         ':username' => $username,
     ])) {
@@ -70,7 +71,7 @@ if (isset($_POST['registrar'])) {
     }
     // Ya se ha terminado; se cierra
     $resultado = null;
-    $dbh = null;
+    $dbh = null; */
 }
 
 ?>

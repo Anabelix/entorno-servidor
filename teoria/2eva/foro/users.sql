@@ -14,8 +14,8 @@ UPDATE users SET email='mryetireturns@gmail.com' WHERE username='alvaro';
 UPDATE users SET descripcion='15. Viendo ahora mismo: Suspicious partner, S.W.A.T y Prodigal Son. Rowoon<3.' WHERE id=1;
 UPDATE users SET descripcion='El Marqués de Villaverde. No somos nadie y menos en bañador. La paz está en Bolivia. Sigueme para más tips.' WHERE id=2;
 UPDATE users SET descripcion='Hola panitas soy Román hehe. CSS como estilo de vida, lorem ipsum blah blah blah...' WHERE id=3;
-UPDATE users SET descripcion='Holaa soy Franco Gianello y estudio DAW. Me gusta el ajedrez y pokemon. Tyty.' WHERE id=4;
-UPDATE users SET descripcion='15. Buscando un sentido a la vida.' WHERE id=5;
+UPDATE users SET descripcion='Holaa soy Franco Gianello y estudio DAW. Me gusta el ajedrez y pokemon. Tyty.' WHERE id=5;
+UPDATE users SET descripcion='Javier Lasso. Juego con la consola en clase lol. Buscando un sentido a la vida.' WHERE id=4;
 
 CREATE TABLE mensajes (
   `id`        MEDIUMINT NOT NULL AUTO_INCREMENT,

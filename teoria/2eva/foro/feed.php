@@ -55,7 +55,7 @@ function pintar($consulta)
 
         $minutos = round(((time() - $info['timestamp']) / 60) / 60, 1);
         if ($minutos == 0) {
-            $tiempo = ++$minutos . "m";
+            $tiempo = ++$minutos . "s";
         } elseif ($minutos < 1) {
             $tiempo = ($minutos * 60) . "m";
         } elseif ($minutos >= 1 && $minutos <= 24) {
