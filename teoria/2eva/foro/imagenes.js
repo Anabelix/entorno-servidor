@@ -8,5 +8,5 @@ usuarios.forEach(usuario => {
 
 for (let index = 0; index < clase.length; index++) {
     usuarios[index].style.backgroundImage="url('./img/icon"+clase[index].charAt(clase[index].length-1)+".jpg')";
-    usuarios[index].style.backgroundSize="contain";
+    usuarios[index].style.backgroundSize="cover";
 } 

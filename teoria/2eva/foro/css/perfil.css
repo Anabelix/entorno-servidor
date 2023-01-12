@@ -1,0 +1,21 @@
+.perfil {
+    border-radius: 15px;
+    padding:4%;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 53%, rgba(29,155,240,1) 53%);
+}
+.icon {
+    transform: scale(120%);
+    margin-top:-4%;margin-bottom:6%;
+}
+.perfil>p:first-of-type::first-line {
+    color: #000;
+    font-weight: bold;
+    font-size:20px;
+}
+.perfil>p:first-of-type {
+    color: #9b9b9b;
+}
+.perfil p {
+    margin-top:3%;
+}
