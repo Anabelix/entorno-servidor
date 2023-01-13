@@ -51,7 +51,7 @@ if (!isset($_SESSION['user'])) {
     <link rel="stylesheet" href="css/feed.css">
     <link rel="stylesheet" href="css/perfil.css">
     <script src="imagenes.js" type="text/javascript" defer></script>
-    <title><?=$_SESSION['user']?></title>
+    <title><?=$_GET['user']?></title>
 </head>
 <body>
     <div class="contenedor">

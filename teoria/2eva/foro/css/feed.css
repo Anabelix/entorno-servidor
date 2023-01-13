@@ -51,6 +51,7 @@ textarea {
     height: 10vh;
 }
 input[type="submit"], .enlaces {
+    font-size: 17px;
     width: fit-content;
     padding: 1.5% 2.5%;
     border-radius: 25px;

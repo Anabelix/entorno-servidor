@@ -15,7 +15,6 @@
 
 h1 {
     text-align: center;
-    margin-bottom: 10%;
 }
 form {
     margin: 0 auto;
@@ -26,9 +25,10 @@ form {
     display:flex;
     flex-direction:column;
 }
-form>input {
-    margin-bottom:7%;
+form>label {
+    margin-top:7%;
 }
+.errores {color:red;}
 .botones{
     width:100%;
     margin: 0 auto;
@@ -36,8 +36,9 @@ form>input {
 }
 
 input[type="submit"], .enlaces {
+    font-size: 15px;
     width: fit-content;
-    padding: 3% 4%;
+    padding: 3% 3%;
     border-radius: 25px;
     border:none;
     background-color: rgb(29, 155, 240);

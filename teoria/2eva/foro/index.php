@@ -36,44 +36,6 @@ if (isset($_POST['iniciar'])) {
         print("Clave errónea");
     }
 }
-
-if (isset($_POST['registrar'])) {
-    
-    if (isset($_POST['username']) && $_POST['username'] != "") {
-        $username = clean_input($_POST['username']);
-    }
-    if (isset($_POST['pass']) && $_POST['pass'] != "") {
-        $passw = password_hash(clean_input($_POST['pass']), PASSWORD_DEFAULT);
-    }
-    header('Location: registrar.php?username='.$username.'?ps='.$passw.'');
-    /*$consulta = $dbh->prepare("SELECT username FROM users WHERE username = :username LIMIT 1");
-    if ($consulta->execute([
-        ':username' => $username,
-    ])) {
-        if ($consulta->fetchAll() != null) {
-            echo "Usuario existente";
-        } else {
-            echo "Nombre de usuario no existente";
-            $username = $username;
-            $pass = $passw;
-            $stmt = $dbh->prepare("INSERT INTO users (id, username, pass) VALUES (:id,:username,:pass)");
-        
-            if ($stmt->execute([
-                ':id' => $id,
-                ':username' => $username,
-                ':pass' => $pass,
-            ])) {
-                echo 'Insercción realizada!!!!!';
-            } else {
-                echo 'Insercción fallida :(';
-            }
-        } 
-    }
-    // Ya se ha terminado; se cierra
-    $resultado = null;
-    $dbh = null; */
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +57,7 @@ if (isset($_POST['registrar'])) {
         <input type="password" name="pass" id="pass">
 
         <div class="botones">
-            <input type="submit" value="Regístrate" name="registrar">
+            <a class="enlaces" href="registrar.php">Regístrate</a>
             <input type="submit" value="Iniciar sesión" name="iniciar">
         </div>
     </form>
