@@ -19,3 +19,6 @@
 .perfil p {
     margin-top:3%;
 }
+#formulario {
+    display: none;
+}

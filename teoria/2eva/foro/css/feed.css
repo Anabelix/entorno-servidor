@@ -7,11 +7,13 @@
 }
 body, html {
     background: rgb(163,218,160);
+    background-repeat: no-repeat;
     background: linear-gradient(60deg, rgba(163,218,160,1) 0%, rgba(249,255,223,1) 25%, rgba(210,243,250,1) 60%, rgba(255,228,242,1) 100%); 
     background-size: contain;
 }
 .contenedor {
     width:70vh;
+    min-height: 100vh;
     padding: 2%;
 }
 header {

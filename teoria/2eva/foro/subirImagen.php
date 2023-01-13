@@ -1,4 +1,5 @@
 <?
+require('perfil.php');
 if (isset($_POST['enviar'])) {
     $imagen = $_FILES['imagen'];
     if ($imagen['error']==0) {
