@@ -3,6 +3,15 @@ require('../../1eva/printeoRechulon.php');
 require './accesoBases.php';
 session_start();
 
+$descripcion="";
+function clean_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 if (!isset($_SESSION['user'])) {
     header('Location: no.php');
 } else {
@@ -17,19 +26,24 @@ if (!isset($_SESSION['user'])) {
 
 
     if (isset($_POST['enviar'])) {
+        if (isset($_POST['descripcion']) && $_POST['descripcion']!="") {
+            $descripcion = clean_input($_POST['descripcion']);
 
+            $consulta2 = $dbh->prepare("UPDATE users SET descripcion=:descripcion WHERE username=:username");
+            $consulta2->execute([
+                ':descripcion'=>$descripcion,
+                ':username'=>$_SESSION['user']
+            ]);
+        }
         $imagen = $_FILES['imagen'];
 
-        printeoCool($imagen);
         if ($imagen['error'] == 0) {
             $nombre = $imagen['name'];
 
             if (str_contains($imagen['name'], '.jpg') || str_contains($imagen['name'], '.jpeg')) :
                 $nombre = 'icon' . $admin . '.jpg';
-                echo $nombre;
             else :
                 $nombre = 'icon' . $admin . '.png';
-                echo $nombre;
             endif;
 
             $tipo = $imagen['type'];
@@ -115,7 +129,7 @@ if (!isset($_SESSION['user'])) {
                 <form action="" method="post" enctype="multipart/form-data" id="formulario">
                     <label for="imagen">Fotografía:</label>
                     <input type="file" name="imagen" id="imagen">
-
+                    <textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
                     <input type="submit" value="enviar" name="enviar">
                     <input type="button" value="cerrar" onclick="closeForm()">
                 </form>
@@ -123,7 +137,7 @@ if (!isset($_SESSION['user'])) {
 
 
             <p><?= $_GET['user'] ?><br><?= $email ?></p>
-            <p><?= $resultado['descripcion'] ?></p>
+            <p><?= $resultado['descripcion']==""?$descripcion:$resultado['descripcion'] ?></p>
         </div>
 
         <div class="feed">
