@@ -1,6 +1,8 @@
 <?php
 require './accesoBases.php';
+require('./subirImagen.php');
 session_start();
+
 if (!isset($_SESSION['user'])) {
     header('Location: no.php');
 } else {
@@ -12,6 +14,7 @@ if (!isset($_SESSION['user'])) {
 
     $consulta = $dbh->prepare("SELECT users.id, mensajes.username, mensajes.mensaje, mensajes.timestamp from users, mensajes where mensajes.username=:username and users.username=mensajes.username ORDER BY timestamp DESC");
     $consulta->execute([':username' => $_GET['user']]);
+    
     function pintar($consulta)
     {
         while ($info = $consulta->fetch()) {
@@ -58,6 +61,17 @@ if (!isset($_SESSION['user'])) {
         <div class="perfil">
             <a class="enlaces" href="feed.php">← Volver</a>
             <div class="foto user<?=$admin?> icon" id="admin"></div>
+
+            <input type="button" value="Editar" onclick="openForm()">
+    
+            <form action="" method="post" enctype="multipart/form-data" id="formulario">
+                <label for="imagen">Fotografía:</label>
+                <input type="file" name="imagen" id="imagen">
+
+                <input type="submit" value="enviar" name="enviar">
+                <input type="button" value="cerrar" onclick="closeForm()">
+            </form>
+
             <p><?=$_GET['user']?><br><?=$email?></p>
             <p><?=$resultado['descripcion']?></p>
         </div>

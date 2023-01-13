@@ -33,6 +33,7 @@ if (isset($_POST['enviar'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="javascript.js" defer></script>
     <style>
         .foto {
             width:250px;
@@ -42,16 +43,24 @@ if (isset($_POST['enviar'])) {
             background-image: url('<?=$ruta?>');
             background-size:cover;
         }
+
+        #formulario {display:none;}
     </style>
     <title>Subida</title>
 </head>
 <body>
-    <form action="" method="post" enctype="multipart/form-data">
+    <div class="foto"></div>
+    <input type="button" value="Editar" onclick="openForm()">
+    <form action="" method="post" enctype="multipart/form-data" id="formulario">
         <label for="imagen">Fotografía:</label>
         <input type="file" name="imagen" id="imagen">
 
         <input type="submit" value="enviar" name="enviar">
+        <input type="button" value="cerrar" onclick="closeForm()">
     </form>
-    <div class="foto"></div>
+    <script>
+        let imagen = document.querySelector(".foto");
+        imagen.style.backgroundImage="url('"+<?=$ruta?>+"')";
+    </script>
 </body>
 </html>
