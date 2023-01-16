@@ -5,8 +5,9 @@ require('../src/init.php');
 if (isset($_POST['login'])) {
     $user = $_POST['user'];
     $passwd = $_POST['passw'];
-    $recuerdame = $_POST['recuerda'];
-
+    $recuerdame = $_POST['recuerdame'];
+var_dump(($_POST));
+var_dump(($_SESSION));
     //Consulta a bbdd por el Usuario
     $db->ejecuta(
         'SELECT id, nombre, correo, passwd FROM usuarios WHERE nombre=?',
@@ -41,6 +42,7 @@ if (isset($_POST['login'])) {
             
         }
         print("Clave correcta");
+        header('Location: edit.php');
         
     } else {
         print("Clave errónea");

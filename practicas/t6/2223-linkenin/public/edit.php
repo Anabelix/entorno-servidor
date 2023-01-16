@@ -1,5 +1,7 @@
 <?php
-if(!$_SESSION['user'] || $_SESSION['user']=="") {
+require('../src/init.php');
+require('areaprivada.php');
+if(!isset($_SESSION['user']) || $_SESSION['user']=="") {
     header('Location: login.php?redirect=edit.php');
     die();
 }
@@ -13,6 +15,6 @@ if(!$_SESSION['user'] || $_SESSION['user']=="") {
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>hola</h1>
 </body>
 </html>
