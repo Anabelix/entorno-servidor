@@ -13,4 +13,5 @@ $db->inicializa(
 
 
 session_start();
+require('recuerdame.php');
 ?>

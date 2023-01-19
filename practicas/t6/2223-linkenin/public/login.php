@@ -48,7 +48,6 @@ var_dump(($_SESSION));
         print("Clave errónea");
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
