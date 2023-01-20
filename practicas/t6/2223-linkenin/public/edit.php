@@ -14,7 +14,27 @@ if (isset($_POST['enviar'])) {
     );
 }
 
+if(isset($_FILES['imagen'])) {
+    $imagen = $_FILES['imagen'];
+    if ($imagen['error'] == 0) {
+        $nombre = $imagen['name'];
+        $tipo = $imagen['type'];
+        $ruta_temp = $imagen['tmp_name'];
 
+        if (($tipo == 'image/jpeg') || ($tipo == 'image/png')) {
+            
+            //Mover el fichero a su posición final
+            move_uploaded_file($ruta_temp, "upload/perfiles/".$_SESSION['id'].".png"); //meter este upload/perfiles  en config
+            
+            //actualizar la bd
+            $DB->ejecuta(
+                "UPDATE usuarios SET img = ? WHERE id = ?",
+                "upload/perfiles/".$_SESSION['id'].".png",
+                $_SESSION['id']
+            );
+        }
+    }
+}
 
 
 
@@ -38,6 +58,9 @@ $usuario = $db->obtenElDato();
 
 <body>
     <h1>Modifica tus datos</h1>
+    <?php if ($usuario['img'] != "") { ?>
+        <img src='<?=$usuario['img']?>'>
+    <?php } ?>
     <p><?= $usuario['nombre'] ?><br><?= $email ?></p>
     
     <form action="" method="post" enctype="multipart/form-data" id="formulario">
