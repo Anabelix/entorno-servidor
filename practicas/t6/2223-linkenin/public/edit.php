@@ -1,5 +1,6 @@
 <?php
 require('../src/init.php');
+
 /* require('areaprivada.php'); */
 if (!isset($_SESSION['user']) || $_SESSION['user'] == "") {
     header('Location: login.php?redirect=edit.php');
@@ -14,7 +15,7 @@ if (isset($_POST['enviar'])) {
     );
 }
 
-if(isset($_FILES['imagen'])) {
+if (isset($_FILES['imagen'])) {
     $imagen = $_FILES['imagen'];
     if ($imagen['error'] == 0) {
         $nombre = $imagen['name'];
@@ -22,14 +23,14 @@ if(isset($_FILES['imagen'])) {
         $ruta_temp = $imagen['tmp_name'];
 
         if (($tipo == 'image/jpeg') || ($tipo == 'image/png')) {
-            
+
             //Mover el fichero a su posición final
-            move_uploaded_file($ruta_temp, "upload/perfiles/".$_SESSION['id'].".png"); //meter este upload/perfiles  en config
-            
+            move_uploaded_file($ruta_temp, "upload/perfiles/" . $_SESSION['id'] . ".png"); //meter este upload/perfiles  en config
+
             //actualizar la bd
-            $DB->ejecuta(
+            $db->ejecuta(
                 "UPDATE usuarios SET img = ? WHERE id = ?",
-                "upload/perfiles/".$_SESSION['id'].".png",
+                "upload/perfiles/" . $_SESSION['id'] . ".png",
                 $_SESSION['id']
             );
         }
@@ -53,25 +54,50 @@ $usuario = $db->obtenElDato();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+/*         .cilote::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+
+        .cilote::before {
+            content: 'Imagen XD';
+            width: min-content;
+            display: inline-block;
+            background: linear-gradient(top, #f9f9f9, #e3e3e3);
+            border: 1px solid #999;
+            border-radius: 3px;
+            padding: 5px 8px;
+            outline: none;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .cilote:hover::before {
+            border-color: black;
+        }
+
+        .cilote:active::before {
+            background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+        } */
+    </style>
     <title>Document</title>
 </head>
 
 <body>
-    <h1>Modifica tus datos</h1>
+    <h1>Modifica tus datos usuario <?= $usuario['nombre'] ?></h1>
     <?php if ($usuario['img'] != "") { ?>
-        <img src='<?=$usuario['img']?>'>
+        <img src='<?= $usuario['img'] ?>'>
     <?php } ?>
-    <p><?= $usuario['nombre'] ?><br><?= $email ?></p>
-    
+    <p><?= $usuario['nombre'] ?><br><?= $usuario['correo'] ?></p>
+
     <form action="" method="post" enctype="multipart/form-data" id="formulario">
-        
-        <label for="imagen">Fotografía:</label>
-        <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg"><br>
-        <textarea name="descripcion" id="descripcion" cols="30" rows="10"><?=$usuario['descripcion']?></textarea><br>
+
+        <!-- <label for="imagen">Fotografía:</label> -->
+        <input class="cilote" type="file" name="imagen" id="imagen" accept="image/png, image/jpeg"><br>
+        <textarea name="descripcion" id="descripcion" cols="30" rows="10"><?= $usuario['descripcion'] ?></textarea><br>
 
 
         <input type="submit" value="enviar" name="enviar">
-        <input type="button" value="cerrar" onclick="closeForm()">
     </form>
 </body>
 

@@ -41,7 +41,8 @@ if (isset($_POST['login'])) {
             
         }
         print("Clave correcta");
-        header('Location: edit.php');
+        print_r("Cookie: ".$_COOKIE['recuerdame']);
+        /* header('Location: edit.php'); */
         
     } else {
         print("Clave errónea");

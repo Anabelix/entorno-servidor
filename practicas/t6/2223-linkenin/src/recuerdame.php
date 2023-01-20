@@ -7,12 +7,10 @@ if (!isset($_SESSION['user']) || $_SESSION['user'] == "") {
         
         //obtengo de la bbdd el usuario de ese token
         $db->ejecuta(
-            'SELECT nombre, usuarios.id, valor
-            FROM usuarios, tokens
-            WHERE tokens.id = usuarios.id
-            AND valor = ?
-            AND expiracion > NOW()',
-
+            "SELECT u.id, u.nombre, t.valor
+            FROM usuarios u
+            LEFT JOIN tokens t ON u.id = t.id_usuario
+            WHERE t.valor = ? AND t.expiracion > NOW();",
             $_COOKIE['recuerdame']
         );
 
