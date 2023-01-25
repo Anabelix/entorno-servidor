@@ -1,0 +1,38 @@
+>>> var_uno=3
+>>> type(var_uno)
+<class 'int'>
+>>> print("Hola mundo")
+Hola mundo
+>>> print('Hola mundo')
+Hola mundo
+>>> print(f'Hola mundo {var_uno}')
+Hola mundo 3
+>>> lista = ['Anabel', 'Alvaro', 'Rowoon']
+>>> ",".join(lista)
+'Anabel,Alvaro,Rowoon'
+>>> " + ".join(lista)
+'Anabel + Alvaro + Rowoon'
+>>> lista
+['Anabel', 'Alvaro', 'Rowoon']
+>>> numeros = [1,2,3,4,5,6,7,8,9,10]
+>>> numeros
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> numeros[-1]
+10
+>>> numeros[3]
+4
+>>> numeros
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> numeros[2:5]
+[3, 4, 5]
+>>> len(numeros)
+10
+>>> numeros[0:9:2]
+[1, 3, 5, 7, 9]
+>>> a, b = 4, 9
+>>> a, b = b, a
+>>> a
+9
+>>> b
+4
+>>> exit()
